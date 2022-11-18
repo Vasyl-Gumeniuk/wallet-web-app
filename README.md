@@ -1,8 +1,8 @@
 **Read in other languages: [Русский](README.md), [Polska](README.pl.md).**
 
-# React homework template
+# Wallet Web Application
 
-# список команд для работи с терминалом
+# Cписок команд для работи с терміналом
 
 1. git clone https://ссылка*на*репозитоий клонируете репозиторий
 2. git checkout ‘название-ветки’ переход на ветку ‘название-ветки’
