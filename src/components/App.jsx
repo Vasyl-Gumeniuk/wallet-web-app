@@ -6,7 +6,7 @@ export const App = () => {
   return (
     <>
       <Hello />
-      <LoginPage />
+      {/* <LoginPage /> */}
       <RegistrationPage />
     </>
   );
