@@ -25,6 +25,7 @@ const LoginForm = () => {
         return (
           <Form>
             <EmailInput />
+            {/* <PasswordInput/> */}
           </Form>
         );
       }}
