@@ -1,9 +1,10 @@
+import Logo from '../../components/Logo';
 import LoginForm from './LoginForm';
 
 const LoginPage = () => {
   return (
     <>
-      <h1>LoginPage</h1>
+      <Logo />
       <LoginForm />
     </>
   );
