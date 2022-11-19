@@ -32,6 +32,8 @@
     "react-scripts": "5.0.1",
     "recharts": "^2.1.14",
     "redux-persist": "^6.0.0",
+    "styled-components": "^5.3.6",
+    "styled-system": "^5.1.5",
     "sweetalert2": "^11.4.29",
     "victory": "^36.6.6",
     "web-vitals": "^2.1.3"
