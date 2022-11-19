@@ -1,11 +1,5 @@
-import Hello from './Header/Header'
-
-
-
+import Hello from './Header/Header';
 
 export const App = () => {
-
-  return (
-    <Hello/>
-  )
+  return <Hello />;
 };
