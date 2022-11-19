@@ -12,6 +12,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 import { authApi } from './auth/authApi';
 import { authSlice } from './auth/authSlice';
+import { transactionApi } from './transactions/transactionApi';
 
 const persistConfig = {
   key: 'authSlice',
@@ -24,11 +25,13 @@ export const store = configureStore({
   reducer: {
     authSlice: authReducer,
     [authApi.reducerPath]: authApi.reducer,
+    [transactionApi.reducerPath]: transactionApi.reducer,
   },
 
   middleware: getDefaultMiddleware => [
     ...getDefaultMiddleware(),
     authApi.middleware,
+    transactionApi.middleware,
   ],
   serializableCheck: {
     ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
