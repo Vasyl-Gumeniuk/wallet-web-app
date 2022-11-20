@@ -7,21 +7,25 @@ import {
 import EmailInput from '../../../components/Inputs/EmailInput';
 import PasswordInput from '../../../components/Inputs/PasswordInput';
 import { useLogInMutation } from '../../../redux/auth/authApi';
+import { logInUser } from '../../../redux/auth/authSlice';
 import { LoginSchema } from '../../../services/formValidationService';
 
 const LoginForm = () => {
   const [
-    loginUser,
-    {
-      isError: isLoginError,
-      isLoading: isLoginLoading,
-      isSuccess: isloginSuccess,
-    },
+    login,
+    // {
+    //   isError: isLoginError,
+    //   isLoading: isLoginLoading,
+    //   isSuccess: isloginSuccess,
+    // },
   ] = useLogInMutation();
   const dispatch = useDispatch();
 
   const handleSubmit = async (email, password) => {
-    await dispatch(loginUser({ email, password }));
+    const user = { email, password };
+    const { data } = await login(user);
+
+    await dispatch(logInUser(data));
   };
 
   return (

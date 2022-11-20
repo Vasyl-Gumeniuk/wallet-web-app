@@ -6,7 +6,10 @@ export const authApi = createApi({
     baseUrl: 'https://back-voit-wallet.herokuapp.com/api',
 
     prepareHeaders: (headers, { getState }) => {
+      const test = getState();
+      console.log('test', test);
       const token = getState().authSlice.token;
+      console.log('token', token);
 
       if (token) {
         headers.set('authorization', `Bearer ${token}`);
@@ -26,12 +29,15 @@ export const authApi = createApi({
       }),
     }),
     logIn: builder.mutation({
-      query: values => ({
-        url: `/user/auth/login`,
-        method: 'POST',
-        body: values,
-        providesTags: ['User'],
-      }),
+      query: values => {
+        console.log('values', values);
+        return {
+          url: `/user/auth/login`,
+          method: 'POST',
+          body: values,
+          providesTags: ['User'],
+        };
+      },
     }),
     logOut: builder.mutation({
       query: () => ({

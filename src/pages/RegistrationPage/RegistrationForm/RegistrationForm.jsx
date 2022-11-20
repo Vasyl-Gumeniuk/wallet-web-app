@@ -8,11 +8,12 @@ import EmailInput from '../../../components/Inputs/EmailInput';
 import NameInput from '../../../components/Inputs/NameInput/NameInput';
 import PasswordInput from '../../../components/Inputs/PasswordInput';
 import { useRegisterMutation } from '../../../redux/auth/authApi';
+import { registerUser } from '../../../redux/auth/authSlice';
 import { RegistrationSchema } from '../../../services/formValidationService';
 
 const RegistrationForm = () => {
   const [
-    registerUser,
+    register,
     {
       isError: isRegistrationError,
       isLoading: isRegistrationLoading,
@@ -20,14 +21,13 @@ const RegistrationForm = () => {
     },
   ] = useRegisterMutation();
 
-  console.log('isRegistrationError', isRegistrationError);
-  console.log('isRegistrationLoading', isRegistrationLoading);
-  console.log('isRegistrationSuccess', isRegistrationSuccess);
-
   const dispatch = useDispatch();
 
   const handleSubmit = async (email, password, name) => {
-    await dispatch(registerUser({ email, password, name }));
+    const user = { email, password, name };
+    const { data } = await register(user);
+
+    await dispatch(registerUser(data));
   };
 
   return (
