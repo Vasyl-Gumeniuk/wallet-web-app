@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const transactionApi = createApi({
   reducerPath: 'transactionApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://6379360f7419b414df8c001d.mockapi.io',
+    baseUrl: 'https://back-voit-wallet.herokuapp.com/api',
     prepareHeaders: (headers, { getState }) => {
       const token = getState().authSlice.token;
 
@@ -18,12 +18,12 @@ export const transactionApi = createApi({
   tagTypes: ['Transaction'],
   endpoints: builder => ({
     getTransactions: builder.query({
-      query: () => `/transaction`,
+      query: () => `/transactions`,
       providesTags: ['Transaction'],
     }),
     addTransaction: builder.mutation({
       query: value => ({
-        url: '/transaction',
+        url: '/transactions/add',
         method: 'POST',
         body: value,
       }),
