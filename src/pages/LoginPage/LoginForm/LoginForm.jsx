@@ -1,13 +1,22 @@
 import { Form, Formik } from 'formik';
+import { useDispatch } from 'react-redux';
 import {
   LoginButton,
   RedirectFormButton,
 } from '../../../components/Button/Button.styled';
 import EmailInput from '../../../components/Inputs/EmailInput';
 import PasswordInput from '../../../components/Inputs/PasswordInput';
+import { useLogInMutation } from '../../../redux/auth/authApi';
 import { LoginSchema } from '../../../services/formValidationService';
 
 const LoginForm = () => {
+  const [loginUser, { isError, isLoading, isSuccess }] = useLogInMutation();
+  const dispatch = useDispatch();
+
+  const handleSubmit = async (email, password) => {
+    await dispatch(loginUser({ email, password }));
+  };
+
   return (
     <Formik
       initialValues={{
@@ -15,19 +24,8 @@ const LoginForm = () => {
         password: '',
       }}
       validationSchema={LoginSchema}
-      onSubmit={async (values, actions) => {
-        console.log('values', values);
-        // const validValues = {
-        //   ...values,
-        //   position: +values.position,
-        //   file,
-        // };
-        //-------------------------------
-        // await handleSubmit(validValues);
-        //-------------------------------
-        // if (postError !== '') {
-        //   actions.setSubmitting(false);
-        // }
+      onSubmit={async ({ email, password }, actions) => {
+        await handleSubmit(email, password);
       }}
     >
       {({ handleChange, isSubmitting, values, errors, touched }) => {

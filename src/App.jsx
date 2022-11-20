@@ -8,8 +8,8 @@ export const App = () => {
     <>
       <GlobalStyle />
       <Hello />
-      <LoginPage />
-      {/* <RegistrationPage /> */}
+      {/* <LoginPage /> */}
+      <RegistrationPage />
     </>
   );
 };
