@@ -1,7 +1,7 @@
 import { Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import {
-  LoginButton,
+  AuthButton,
   RedirectFormButton,
 } from '../../../components/Button/Button.styled';
 import EmailInput from '../../../components/Inputs/EmailInput';
@@ -10,7 +10,14 @@ import { useLogInMutation } from '../../../redux/auth/authApi';
 import { LoginSchema } from '../../../services/formValidationService';
 
 const LoginForm = () => {
-  const [loginUser, { isError, isLoading, isSuccess }] = useLogInMutation();
+  const [
+    loginUser,
+    {
+      isError: isLoginError,
+      isLoading: isLoginLoading,
+      isSuccess: isloginSuccess,
+    },
+  ] = useLogInMutation();
   const dispatch = useDispatch();
 
   const handleSubmit = async (email, password) => {
@@ -43,7 +50,7 @@ const LoginForm = () => {
               passwordError={errors.password}
               touchedError={touched.password}
             />
-            <LoginButton type="submit">Login</LoginButton>
+            <AuthButton type="submit">Login</AuthButton>
             <RedirectFormButton>Register</RedirectFormButton>
           </Form>
         );
