@@ -14,11 +14,11 @@ import { RegistrationSchema } from '../../../services/formValidationService';
 const RegistrationForm = () => {
   const [
     register,
-    {
-      isError: isRegistrationError,
-      isLoading: isRegistrationLoading,
-      isSuccess: isRegistrationSuccess,
-    },
+    // {
+    //   isError: isRegistrationError,
+    //   isLoading: isRegistrationLoading,
+    //   isSuccess: isRegistrationSuccess,
+    // },
   ] = useRegisterMutation();
 
   const dispatch = useDispatch();
