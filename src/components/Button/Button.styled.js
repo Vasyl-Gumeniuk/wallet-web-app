@@ -27,14 +27,14 @@ export const ButtonStyled = styled(Button)`
   }
 `;
 
-export const LoginButton = styled(ButtonStyled)`
+export const AuthButton = styled(ButtonStyled)`
   position: relative;
   padding: 4px 22px;
   margin-left: ${p => p.theme.space[9]};
   margin-right: ${p => p.theme.space[9]};
 `;
 
-export const RedirectFormButton = styled(LoginButton)`
+export const RedirectFormButton = styled(AuthButton)`
   border: 1px solid black;
   background-color: transparent;
 `;
