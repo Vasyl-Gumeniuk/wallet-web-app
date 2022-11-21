@@ -1,0 +1,98 @@
+
+.loader {
+  height: 25px;
+  width: 250px;
+
+  
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.loader_dot {
+  animation-name: loader;
+  animation-timing-function: ease-in-out;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  height: 25px;
+  width: 25px;
+  border-radius: 100%;
+  background-color: black;
+  position: absolute;
+
+  box-shadow: inset 0px 0px 2px 1.5px rgba(11, 29, 41, 0.1), 0px 0px 5px 0px rgba(255, 255, 255, 0.2);
+  
+}
+
+.loader_dot::after{
+    content: "$";
+    font-size: 17px;
+    color: rgb(239, 246, 244) ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.loader_dot:first-child {
+  
+  animation-delay: 0.9s;
+  background-color: rgba(36, 204, 167, 0.5);
+  border: 2px solid rgb(215, 239, 234); 	
+  	
+}
+.loader_dot:nth-child(2) {
+ 
+  animation-delay: 0.7s;
+  background-color: rgba(36, 204, 167, 0.5);
+  border: 2px solid rgb(215, 239, 234); 	
+  
+}
+.loader_dot:nth-child(3) {
+  
+  animation-delay: 0.5s;
+  background-color: rgba(36, 204, 167, 0.5);
+  border: 2px solid rgb(215, 239, 234); 	
+  	
+}
+.loader_dot:nth-child(4) {
+ 
+  animation-delay: 0.3s;
+  background-color: rgba(36, 204, 167, 0.5);
+  border: 2px solid rgb(215, 239, 234); 	
+  
+}
+.loader_dot:nth-child(5) {
+  
+  animation-delay: 0.1s;
+  background-color: rgba(36, 204, 167, 0.5);
+  border: 2px solid rgb(215, 239, 234); 	
+  
+}
+.loader_dot:nth-child(6) {
+  
+  animation-delay: 0s;
+  background-color: rgba(36, 204, 167, 0.5);
+  border: 2px solid rgb(215, 239, 234); 	
+  
+}
+
+
+@keyframes loader {
+  10% {
+    transform: translateX(0);
+  }
+  45% {
+    transform: translateX(225px);
+  }
+  65% {
+    transform: translateX(225px);
+  }
+  90% {
+    transform: translateX(0);
+  }
+}
