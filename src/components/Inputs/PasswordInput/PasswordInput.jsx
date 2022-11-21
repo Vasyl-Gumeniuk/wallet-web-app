@@ -1,5 +1,8 @@
+import { useState } from 'react';
+import { BiShowAlt, BiHide } from 'react-icons/bi';
 import PasswordStrengthBar from 'react-password-strength-bar';
 import sprite from '../../../images/icons/sprite-all-icons.svg';
+import { HideShowButton } from '../../Button/Button.styled';
 import FormError from '../../FormError';
 import {
   FormInput,
@@ -15,6 +18,12 @@ const PasswordInput = ({
   touchedError,
   handleChange,
 }) => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleHideShowButtonClick = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <InputBlock>
       <InputContent>
@@ -23,7 +32,7 @@ const PasswordInput = ({
         </FormInputIcon>
         <FormInput
           id="password"
-          type="password"
+          type={showPassword ? 'text' : 'password'}
           name="password"
           placeholder=" "
           required
@@ -32,6 +41,9 @@ const PasswordInput = ({
           error={passwordError && touchedError ? 'true' : 'false'}
         />
         <InputLabel htmlFor="password">Password</InputLabel>
+        <HideShowButton onClick={handleHideShowButtonClick}>
+          {showPassword ? <BiShowAlt /> : <BiHide />}
+        </HideShowButton>
       </InputContent>
       <PasswordStrengthBar password={value} shortScoreWord="" />
       <FormError name="password" />

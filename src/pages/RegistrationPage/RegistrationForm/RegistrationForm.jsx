@@ -81,9 +81,9 @@ const RegistrationForm = () => {
                 <AuthButton type="submit">Register</AuthButton>
               </ButtonElement>
               <ButtonElement>
-                <RedirectFormButton>
-                  <RedirectButtonLink to="/login">Log in</RedirectButtonLink>
-                </RedirectFormButton>
+                <RedirectButtonLink to="/login">
+                  <RedirectFormButton>Log in</RedirectFormButton>
+                </RedirectButtonLink>
               </ButtonElement>
             </ul>
           </Form>
