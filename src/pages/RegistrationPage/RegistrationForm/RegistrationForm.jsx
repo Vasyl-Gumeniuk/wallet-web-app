@@ -1,5 +1,6 @@
 import { Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import {
   AuthButton,
   RedirectFormButton,
@@ -64,7 +65,9 @@ const RegistrationForm = () => {
               touchedError={touched.name}
             />
             <AuthButton type="submit">Register</AuthButton>
-            <RedirectFormButton>Login</RedirectFormButton>
+            <RedirectFormButton>
+              <Link to="/login">Log in</Link>
+            </RedirectFormButton>
           </Form>
         );
       }}

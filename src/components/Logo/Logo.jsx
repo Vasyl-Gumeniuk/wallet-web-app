@@ -1,13 +1,14 @@
 import sprite from '../../images/icons/sprite-all-icons.svg';
+import { AuthLogo, WalletLogo } from './Logo.styled';
 
 const Logo = () => {
   return (
-    <div>
-      <svg width={30} height={30}>
+    <AuthLogo>
+      <WalletLogo>
         <use href={sprite + '#icon-wallet'}></use>
-      </svg>
+      </WalletLogo>
       <h1>Wallet</h1>
-    </div>
+    </AuthLogo>
   );
 };
 

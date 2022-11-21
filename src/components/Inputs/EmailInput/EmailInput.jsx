@@ -1,22 +1,34 @@
-import { Field } from 'formik';
+import sprite from '../../../images/icons/sprite-all-icons.svg';
 import FormError from '../../FormError/FormError';
+import {
+  FormInput,
+  InputBlock,
+  InputContent,
+  InputLabel,
+} from '../Inputs.styled';
+import { EmailIcon } from './EmailInput.styled';
 
 const EmailInput = ({ value, emailError, touchedError, handleChange }) => {
   return (
-    <div>
-      <Field
-        id="email"
-        type="email"
-        name="email"
-        placeholder=" "
-        required
-        onChange={handleChange}
-        value={value}
-        error={emailError && touchedError ? 'true' : 'false'}
-      />
-      <label htmlFor="email">Email</label>
+    <InputBlock>
+      <InputContent>
+        <EmailIcon error={emailError && touchedError ? 'true' : 'false'}>
+          <use href={sprite + '#icon-email'}></use>
+        </EmailIcon>
+        <FormInput
+          id="email"
+          type="email"
+          name="email"
+          placeholder=" "
+          required
+          onChange={handleChange}
+          value={value}
+          error={emailError && touchedError ? 'true' : 'false'}
+        />
+        <InputLabel htmlFor="email">Email</InputLabel>
+      </InputContent>
       <FormError name="email" />
-    </div>
+    </InputBlock>
   );
 };
 
