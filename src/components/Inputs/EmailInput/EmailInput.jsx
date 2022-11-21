@@ -5,16 +5,16 @@ import {
   InputBlock,
   InputContent,
   InputLabel,
+  FormInputIcon,
 } from '../Inputs.styled';
-import { EmailIcon } from './EmailInput.styled';
 
 const EmailInput = ({ value, emailError, touchedError, handleChange }) => {
   return (
     <InputBlock>
       <InputContent>
-        <EmailIcon error={emailError && touchedError ? 'true' : 'false'}>
+        <FormInputIcon error={emailError && touchedError ? 'true' : 'false'}>
           <use href={sprite + '#icon-email'}></use>
-        </EmailIcon>
+        </FormInputIcon>
         <FormInput
           id="email"
           type="email"

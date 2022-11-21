@@ -1,6 +1,5 @@
 import { Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
 import {
   AuthButton,
   RedirectFormButton,

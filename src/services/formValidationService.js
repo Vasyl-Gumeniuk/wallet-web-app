@@ -1,4 +1,4 @@
-import { object, string } from 'yup';
+import { object, string, ref } from 'yup';
 export const NAME_MATCH =
   /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/;
 export const EMAIL_MATCH =
@@ -36,4 +36,9 @@ export const RegistrationSchema = object().shape({
     .min(6, 'Password is too short')
     .max(12, 'Password is too long')
     .required(requiredError),
+  confirmPassword: string()
+    .min(6, 'Password is too short')
+    .max(12, 'Password is too long')
+    .required(requiredError)
+    .oneOf([ref('password'), null], 'Passwords must match'),
 });
