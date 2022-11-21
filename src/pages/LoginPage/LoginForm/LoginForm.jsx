@@ -1,5 +1,6 @@
 import { Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import {
   AuthButton,
   RedirectFormButton,
@@ -9,6 +10,7 @@ import PasswordInput from '../../../components/Inputs/PasswordInput';
 import { useLogInMutation } from '../../../redux/auth/authApi';
 import { logInUser } from '../../../redux/auth/authSlice';
 import { LoginSchema } from '../../../services/formValidationService';
+import { ButtonElement, RedirectButtonLink } from './LoginForm.styled';
 
 const LoginForm = () => {
   const [
@@ -54,8 +56,18 @@ const LoginForm = () => {
               passwordError={errors.password}
               touchedError={touched.password}
             />
-            <AuthButton type="submit">Login</AuthButton>
-            <RedirectFormButton>Register</RedirectFormButton>
+            <ul>
+              <ButtonElement>
+                <AuthButton type="submit">Log in</AuthButton>
+              </ButtonElement>
+              <ButtonElement>
+                <RedirectFormButton>
+                  <RedirectButtonLink to="/registration">
+                    Register
+                  </RedirectButtonLink>
+                </RedirectFormButton>
+              </ButtonElement>
+            </ul>
           </Form>
         );
       }}

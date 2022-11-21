@@ -1,7 +1,7 @@
 export const theme = {
   colors: {
     secondaryTextColor: '#FFFFFF',
-    cardBg: '#FFFFFF',
+
     primaryTextColor: 'rgba(0, 0, 0, 0.87)',
     borderColor: 'rgba(0, 0, 0, 0.87)',
     mainBg: '#F8F8F8',
@@ -16,15 +16,18 @@ export const theme = {
     error: '#CB3D40',
     formColor: '#7e7e7e',
     modalBg: 'rgba(0, 0, 0, 0.3)',
+    activeButtonBg: '#24CCA7',
+    activeButtonColor: '#FFFFFF',
+    unactiveButtonColor: '#4A56E2',
   },
-  space: [0, 2, 13, 16, 20, 32, 60, 128, 256, 'auto', 140, 100],
+  space: [0, 2, 13, 20, 16, 32, 60, 128, 256, 'auto', 140, 100],
   fontSizes: {
     sm: '12px',
-    m: '16px',
+    m: '18px',
     l: '40px',
   },
   lineHeights: {
-    body: 1.6,
+    body: 1.5,
     heading: 1,
     label: 1.16,
   },
@@ -42,9 +45,9 @@ export const theme = {
   },
   borders: {
     none: 'none',
-    input: `1px solid #D0CFCF`,
+    input: `1px solid #e0e0e0`,
     inputError: '2px solid #CB3D40',
-    boldInput: '1px solid rgba(0, 0, 0, 0.87)',
+    unactiveButtonBorder: '1px solid #4A56E2',
   },
   borderStyles: {
     solid: 'solid',
@@ -54,7 +57,7 @@ export const theme = {
     sm: '4px',
     md: '8px',
     lg: '16px',
-    exlg: '80px',
+    exlg: '20px',
     round: '50%',
     card: '10px',
   },

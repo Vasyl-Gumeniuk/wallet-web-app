@@ -3,13 +3,13 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyle = createGlobalStyle`
   body {
   margin: 0;
-  font-family: 'Nunito', sans-serif;
-  color: ${p => p.theme.colors.primaryTextColor};
-  line-height: ${p => p.theme.lineHeights.body};
+  font-family: 'Circe', sans-serif;
+  /* color: ${p => p.theme.colors.primaryTextColor}; */
+  /* line-height: ${p => p.theme.lineHeights.body}; */
   }
-  main {
+  /* main {
     background-color: ${p => p.theme.colors.mainBg};
-  }
+  } */
 ul {
   list-style: none;
 }

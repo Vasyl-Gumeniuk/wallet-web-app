@@ -7,17 +7,23 @@ export const ButtonStyled = styled(Button)`
   align-items: center;
   border-radius: ${p => p.theme.radii.exlg};
   border: ${p => p.theme.borders.none};
-  background-color: ${p => p.theme.colors.primary};
-  transition: ${p => p.theme.transition.backgroundColor};
-  min-width: 100px;
-  min-height: 34px;
+  background-color: ${p => p.theme.colors.activeButtonBg};
+  color: ${p => p.theme.colors.activeButtonColor};
+  transition: ${p => p.theme.transition.backgroundColor},
+    ${p => p.theme.transition.transform};
+  min-width: 280px;
+  min-height: 50px;
+  text-transform: uppercase;
   font-size: ${p => p.theme.fontSizes.m};
   line-height: ${p => p.theme.lineHeights.body};
   font-weight: 400;
+  line-height: ${p => p.theme.lineHeights.body};
+  letter-spacing: 0.1em;
 
   &:hover,
   &:focus {
-    background-color: ${p => p.theme.colors.hover};
+    /* background-color: ${p => p.theme.colors.hover}; */
+    transform: scale(1.1);
   }
 
   &:disabled {
@@ -35,6 +41,6 @@ export const AuthButton = styled(ButtonStyled)`
 `;
 
 export const RedirectFormButton = styled(AuthButton)`
-  border: 1px solid black;
+  border: ${p => p.theme.borders.unactiveButtonBorder};
   background-color: transparent;
 `;

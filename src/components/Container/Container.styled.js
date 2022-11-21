@@ -5,7 +5,7 @@ export const ContainerBlock = styled.div`
   margin: ${p => p.theme.space[0]}px ${p => p.theme.space[9]};
   padding-left: ${p => p.theme.space[3]}px;
   padding-right: ${p => p.theme.space[3]}px;
-  background-color: ${p => p.theme.colors.mainBg};
+  /* background-color: ${p => p.theme.colors.mainBg}; */
 
   @media screen and (min-width: 768px) {
     padding-left: ${p => p.theme.space[5]}px;
