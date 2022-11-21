@@ -11,8 +11,6 @@ export const ButtonStyled = styled(Button)`
   color: ${p => p.theme.colors.activeButtonColor};
   transition: ${p => p.theme.transition.backgroundColor},
     ${p => p.theme.transition.transform};
-  min-width: 280px;
-  min-height: 50px;
   text-transform: uppercase;
   font-size: ${p => p.theme.fontSizes.m};
   line-height: ${p => p.theme.lineHeights.body};
@@ -36,6 +34,8 @@ export const ButtonStyled = styled(Button)`
 export const AuthButton = styled(ButtonStyled)`
   position: relative;
   padding: 4px 22px;
+  min-width: 280px;
+  min-height: 50px;
   margin-left: ${p => p.theme.space[9]};
   margin-right: ${p => p.theme.space[9]};
 `;
@@ -43,4 +43,16 @@ export const AuthButton = styled(ButtonStyled)`
 export const RedirectFormButton = styled(AuthButton)`
   border: ${p => p.theme.borders.unactiveButtonBorder};
   background-color: transparent;
+  color: ${p => p.theme.colors.unactiveButtonColor};
+`;
+
+export const HideShowButton = styled(ButtonStyled)`
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: fit-content;
+  background-color: transparent;
+  color: black;
+  width: 40px;
+  height: 40px;
 `;
