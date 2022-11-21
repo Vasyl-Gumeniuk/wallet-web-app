@@ -5,12 +5,17 @@ import {
   AuthButton,
   RedirectFormButton,
 } from '../../../components/Button/Button.styled';
+import ConfirmPasswordInput from '../../../components/Inputs/ConfirmPasswordInput';
 import EmailInput from '../../../components/Inputs/EmailInput';
 import NameInput from '../../../components/Inputs/NameInput/NameInput';
 import PasswordInput from '../../../components/Inputs/PasswordInput';
 import { useRegisterMutation } from '../../../redux/auth/authApi';
 import { registerUser } from '../../../redux/auth/authSlice';
 import { RegistrationSchema } from '../../../services/formValidationService';
+import {
+  ButtonElement,
+  RedirectButtonLink,
+} from '../../LoginPage/LoginForm/LoginForm.styled';
 
 const RegistrationForm = () => {
   const [
@@ -36,6 +41,7 @@ const RegistrationForm = () => {
       initialValues={{
         email: '',
         password: '',
+        confirmPassword: '',
         name: '',
       }}
       validationSchema={RegistrationSchema}
@@ -58,16 +64,28 @@ const RegistrationForm = () => {
               passwordError={errors.password}
               touchedError={touched.password}
             />
+            <ConfirmPasswordInput
+              handleChange={handleChange}
+              value={values.confirmPassword}
+              confirmPasswordError={errors.confirmPassword}
+              touchedError={touched.confirmPassword}
+            />
             <NameInput
               handleChange={handleChange}
               value={values.name}
               nameError={errors.name}
               touchedError={touched.name}
             />
-            <AuthButton type="submit">Register</AuthButton>
-            <RedirectFormButton>
-              <Link to="/login">Log in</Link>
-            </RedirectFormButton>
+            <ul>
+              <ButtonElement>
+                <AuthButton type="submit">Register</AuthButton>
+              </ButtonElement>
+              <ButtonElement>
+                <RedirectFormButton>
+                  <RedirectButtonLink to="/login">Log in</RedirectButtonLink>
+                </RedirectFormButton>
+              </ButtonElement>
+            </ul>
           </Form>
         );
       }}

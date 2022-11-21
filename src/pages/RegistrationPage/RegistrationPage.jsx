@@ -1,12 +1,16 @@
 import RegistrationForm from './RegistrationForm';
 import Logo from '../../components/Logo';
+import { Box } from '../../Box';
+import { ContainerBlock } from '../../components/Container/Container.styled';
 
 const RegistrationPage = () => {
   return (
-    <>
-      <Logo />
-      <RegistrationForm />
-    </>
+    <Box pt={32} pb={32}>
+      <ContainerBlock>
+        <Logo />
+        <RegistrationForm />
+      </ContainerBlock>
+    </Box>
   );
 };
 

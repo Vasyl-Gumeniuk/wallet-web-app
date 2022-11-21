@@ -29,6 +29,13 @@ export const FormInput = styled(Field)`
   padding: 8px ${p => p.theme.space[0]}px 8px 56px;
   color: ${p => p.theme.colors.primaryTextColor};
 
+  :-webkit-autofill,
+  :-webkit-autofill:hover,
+  :-webkit-autofill:focus,
+  :-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+  }
+
   :focus-within + ${InputLabel} {
     font-weight: 500;
     font-size: ${p => p.theme.fontSizes.sm};
@@ -48,4 +55,13 @@ export const FormInput = styled(Field)`
       p.error === 'true' ? p.theme.colors.error : p.theme.colors.formColor};
     padding: 2px 4px;
   }
+`;
+
+export const FormInputIcon = styled.svg`
+  --color1: ${p => (p.error === 'true' ? p.theme.colors.error : '#E0E0E0')};
+  position: absolute;
+  top: 5px;
+  left: 12px;
+  width: 24px;
+  height: 24px;
 `;

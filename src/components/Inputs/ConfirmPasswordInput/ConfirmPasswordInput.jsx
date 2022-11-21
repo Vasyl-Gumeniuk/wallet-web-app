@@ -1,4 +1,3 @@
-import PasswordStrengthBar from 'react-password-strength-bar';
 import sprite from '../../../images/icons/sprite-all-icons.svg';
 import FormError from '../../FormError';
 import {
@@ -11,30 +10,31 @@ import {
 
 const PasswordInput = ({
   value,
-  passwordError,
+  confirmPasswordError,
   touchedError,
   handleChange,
 }) => {
   return (
     <InputBlock>
       <InputContent>
-        <FormInputIcon error={passwordError && touchedError ? 'true' : 'false'}>
+        <FormInputIcon
+          error={confirmPasswordError && touchedError ? 'true' : 'false'}
+        >
           <use href={sprite + '#icon-lock'}></use>
         </FormInputIcon>
         <FormInput
-          id="password"
+          id="confirmPassword"
           type="password"
-          name="password"
+          name="confirmPassword"
           placeholder=" "
           required
           onChange={handleChange}
           value={value}
-          error={passwordError && touchedError ? 'true' : 'false'}
+          error={confirmPasswordError && touchedError ? 'true' : 'false'}
         />
-        <InputLabel htmlFor="password">Password</InputLabel>
+        <InputLabel htmlFor="confirmPassword">Confirm password</InputLabel>
       </InputContent>
-      <PasswordStrengthBar password={value} shortScoreWord="" />
-      <FormError name="password" />
+      <FormError name="confirmPassword" />
     </InputBlock>
   );
 };
