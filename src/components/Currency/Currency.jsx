@@ -1,42 +1,41 @@
-import { useEffect } from "react";
-import {showCurrency} from '../../services/currency'
 import { Wrapper } from "./Currency.styled";
 import {Header} from './Currency.styled'
 import {Body} from './Currency.styled'
 import {Cell} from './Currency.styled'
 import {CellLast} from './Currency.styled'
 import {LineNotFirst} from './Currency.styled'
+import {Foot} from './Currency.styled'
+import {Line} from './Currency.styled'
+import {useGetStaticCurrency} from './GetStaticCurrency/getStaticCurrency'
 export default function Currency() {
-    useEffect(()=> {
-        // showCurrency()
-    }) 
+    const {eur, usd, gbp} = useGetStaticCurrency();
     return (
         <Wrapper>
         <Header>
-        <tr>
+        <Line>
         <Cell>Currency</Cell>
         <Cell>Purchase</Cell>
         <CellLast>Sale</CellLast>
-        </tr>
+        </Line>
         </Header>
         <Body>
-        <tr>
+        <Line>
         <Cell>USD</Cell>
-        <Cell>27.55</Cell>
-        <CellLast>27.65</CellLast>
-        </tr>
-        <tr>
-        <LineNotFirst>USD</LineNotFirst>
-        <LineNotFirst>27.55</LineNotFirst>
-        <LineNotFirst>27.65</LineNotFirst>
-        </tr>
-        <tr>
-        <LineNotFirst>USD</LineNotFirst>
-        <LineNotFirst>27.55</LineNotFirst>
-        <LineNotFirst>27.65</LineNotFirst>
-        </tr>
+        <Cell>{usd}</Cell>
+        <CellLast>{usd}</CellLast>
+        </Line>
+        <Line>
+        <LineNotFirst>EUR</LineNotFirst>
+        <LineNotFirst>{eur}</LineNotFirst>
+        <LineNotFirst>{eur}</LineNotFirst>
+        </Line>
+        <Line>
+        <LineNotFirst>GBP</LineNotFirst>
+        <LineNotFirst>{gbp}</LineNotFirst>
+        <LineNotFirst>{gbp}</LineNotFirst>
+        </Line>
         </Body>
-        <tfoot></tfoot>
+        <Foot/>
     
      </Wrapper>
     
