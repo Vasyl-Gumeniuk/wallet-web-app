@@ -12,14 +12,13 @@ export const ModalWindov = styled.div`
   width: 100%;
   height: 100vh;
   background-color: #ffffff;
-  left: 50%;
 
   @media (min-width: 768px) {
     position: fixed;
     width: 540px;
     height: 508px;
-    left: 114px;
-    top: 258px;
+    left: 50%;
+    top: 50%;
     transform: translate(-50%, -50%);
     width: 540px;
     height: 508px;
@@ -27,7 +26,5 @@ export const ModalWindov = styled.div`
   }
 
   @media (min-width: 1260px) {
-    left: 370px;
-    top: 106px;
   }
 `;
