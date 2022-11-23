@@ -18,7 +18,13 @@ export const transactionApi = createApi({
   tagTypes: ['Transaction'],
   endpoints: builder => ({
     getTransactions: builder.query({
-      query: () => `/transactions`,
+      query: (page = 1, limit = 10) =>
+        `/transactions?page=${page}&limit=${limit}`,
+      providesTags: ['Transaction'],
+    }),
+    getTransactionsStatistics: builder.query({
+      query: (month, year) =>
+        `/transactions/statistics?month=${month}&year=${year}`,
       providesTags: ['Transaction'],
     }),
     addTransaction: builder.mutation({
@@ -32,5 +38,8 @@ export const transactionApi = createApi({
   }),
 });
 
-export const { useGetTransactionsQuery, useAddTransactionMutation } =
-  transactionApi;
+export const {
+  useGetTransactionsQuery,
+  useAddTransactionMutation,
+  useGetTransactionsStatisticsQuery,
+} = transactionApi;
