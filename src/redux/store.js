@@ -28,13 +28,12 @@ export const store = configureStore({
     [transactionApi.reducerPath]: transactionApi.reducer,
   },
 
-  middleware: getDefaultMiddleware => [
-    ...getDefaultMiddleware(),
-    authApi.middleware,
-    transactionApi.middleware,
-  ],
-  serializableCheck: {
-    ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+  middleware(getDefaultMiddleware) {
+    return getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    });
   },
 });
 
