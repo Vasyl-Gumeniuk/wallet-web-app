@@ -1,6 +1,6 @@
 import { Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import {
   AuthButton,
   RedirectFormButton,
@@ -20,11 +20,11 @@ import {
 const RegistrationForm = () => {
   const [
     register,
-    {
-      isError: isRegistrationError,
-      isLoading: isRegistrationLoading,
-      isSuccess: isRegistrationSuccess,
-    },
+    // {
+    //   isError: isRegistrationError,
+    //   isLoading: isRegistrationLoading,
+    //   isSuccess: isRegistrationSuccess,
+    // },
   ] = useRegisterMutation();
 
   const dispatch = useDispatch();
