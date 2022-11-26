@@ -3,15 +3,31 @@ import { GlobalStyle } from './GlobalStyle';
 import LoginPage from './pages/LoginPage';
 import RegistrationPage from './pages/RegistrationPage';
 import { Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
 import { NavBar } from './NavBar/NavBar';
 import Container from './components/Container/Container';
 import { Outlet } from 'react-router-dom';
 import Currency from './components/Currency/Currency';
 import { Mobile } from './services/mediaQuery';
+import { useDispatch, useSelector } from 'react-redux';
+import { useFetchCurrentUserQuery } from './redux/auth/authApi';
+import { fetchUser } from './redux/auth/authSlice';
 // import PrivateRouter from './components/Navigation/PrivateRouter';
 // import PublicRouter from './components/Navigation/PublicRouter';
 // PrivateRouter,PublicRouter потрібно буде розкемнтувати щоб все запроцювало. Лишаю закоментовунами щоб кожного разу не логінитись так буду легше працюватись)
 export const App = () => {
+  const token = useSelector(state => state.authSlice.token);
+  const skip = token === null ? true : false;
+  const { data: currentUser, isFetching } = useFetchCurrentUserQuery('', {
+    skip,
+  });
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (token === null) {
+      return;
+    }
+    dispatch(fetchUser(currentUser));
+  }, [currentUser, dispatch, token]);
   return (
     <>
       <Routes>

@@ -27,13 +27,14 @@ export const store = configureStore({
     [authApi.reducerPath]: authApi.reducer,
     [transactionApi.reducerPath]: transactionApi.reducer,
   },
-
-  middleware(getDefaultMiddleware) {
-    return getDefaultMiddleware({
+  middleware: getDefaultMiddleware => [
+    ...getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    });
-  },
+    }),
+    authApi.middleware,
+    transactionApi.middleware,
+  ],
 });
 export const persistor = persistStore(store);
