@@ -5,5 +5,5 @@ export default function PublicRouter({ children, restricted = false }) {
   const isLoggedIn = useSelector(state => state.authSlice.isLoggedIn);
   const shouldRedirect = isLoggedIn && restricted;
 
-  return shouldRedirect ? <Navigate to="/transaction" /> : children;
+  return shouldRedirect ? <Navigate to="/home" /> : children;
 }
