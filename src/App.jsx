@@ -8,7 +8,9 @@ import Container from './components/Container/Container';
 import { Outlet } from 'react-router-dom';
 import Currency from './components/Currency/Currency';
 import { Mobile } from './services/mediaQuery';
-
+// import PrivateRouter from './components/Navigation/PrivateRouter';
+// import PublicRouter from './components/Navigation/PublicRouter';
+// PrivateRouter,PublicRouter потрібно буде розкемнтувати щоб все запроцювало. Лишаю закоментовунами щоб кожного разу не логінитись так буду легше працюватись)
 export const App = () => {
   return (
     <>
@@ -16,6 +18,7 @@ export const App = () => {
         <Route
           path="/"
           element={
+            // <PrivateRouter>
             <>
               <Hello />
               <NavBar />
@@ -23,6 +26,7 @@ export const App = () => {
                 <Outlet />
               </Container>
             </>
+            // </PrivateRouter>
           }
         >
           {/* Add Home page */}
@@ -41,8 +45,23 @@ export const App = () => {
             }
           ></Route>
         </Route>
-        <Route path="/login" element={<LoginPage />}></Route>
-        <Route path="/registration" element={<RegistrationPage />}></Route>
+        <Route
+          path="/login"
+          element={
+            // <PublicRouter restricted>
+            <LoginPage />
+            // </PublicRouter>
+          }
+        ></Route>
+        <Route
+          path="/registration"
+          element={
+            //
+            // <PublicRouter restricted>
+            <RegistrationPage />
+            // </PublicRouter>
+          }
+        ></Route>
       </Routes>
       <GlobalStyle />
     </>

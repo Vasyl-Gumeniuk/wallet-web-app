@@ -1,8 +1,8 @@
 import { ReactComponent as ReactSprite } from '../images/icons/sprite-all-icons.svg';
 import Container from '../components/Container/Container';
-import { List, Item, Icon } from './NavBar.styled';
-import { NavLink } from 'react-router-dom';
-import { Mobile } from '../services/mediaQuery';
+import { List, Item, Icon, Text, LinkStyled } from './NavBar.styled';
+
+import { Mobile, Default } from '../services/mediaQuery';
 export const NavBar = () => {
   return (
     <Container>
@@ -10,26 +10,32 @@ export const NavBar = () => {
         <List>
           <Item>
             <ReactSprite />
-            <NavLink to="home">
-              <Icon width="44" height="44">
+            <LinkStyled to="home">
+              <Icon>
                 <use href="#icon-home"></use>
               </Icon>
-            </NavLink>
+              <Default>
+                <Text>Home</Text>
+              </Default>
+            </LinkStyled>
           </Item>
           <Item>
-            <NavLink to="statistics">
-              <Icon width="44" height="44">
+            <LinkStyled to="statistics">
+              <Icon>
                 <use href="#icon-statistica"></use>
               </Icon>
-            </NavLink>
+              <Default>
+                <Text>Statistics</Text>
+              </Default>
+            </LinkStyled>
           </Item>
           <Mobile>
             <Item>
-              <NavLink to="currency">
-                <Icon width="44" height="44">
+              <LinkStyled to="currency">
+                <Icon>
                   <use href="#icon-dollar"></use>
                 </Icon>
-              </NavLink>
+              </LinkStyled>
             </Item>
           </Mobile>
         </List>
