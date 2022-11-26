@@ -1,8 +1,8 @@
 import { ReactComponent as ReactSprite } from '../images/icons/sprite-all-icons.svg';
 import Container from '../components/Container/Container';
-import { List, Item, Icon, Text, LinkStyled } from './NavBar.styled';
-
+import { List, Item, Icon, LinkStyled } from './NavBar.styled';
 import { Mobile, Default } from '../services/mediaQuery';
+
 export const NavBar = () => {
   return (
     <Container>
@@ -14,9 +14,7 @@ export const NavBar = () => {
               <Icon>
                 <use href="#icon-home"></use>
               </Icon>
-              <Default>
-                <Text>Home</Text>
-              </Default>
+              <Default>Home</Default>
             </LinkStyled>
           </Item>
           <Item>
@@ -24,9 +22,7 @@ export const NavBar = () => {
               <Icon>
                 <use href="#icon-statistica"></use>
               </Icon>
-              <Default>
-                <Text>Statistics</Text>
-              </Default>
+              <Default>Statistics</Default>
             </LinkStyled>
           </Item>
           <Mobile>
