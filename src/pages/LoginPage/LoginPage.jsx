@@ -8,7 +8,7 @@ const LoginPage = () => {
   return (
     <Box pt={107} pb={107}>
       <ContainerBlock>
-        <Logo type="login"></Logo>
+        <Logo type="login" />
         <LoginForm />
       </ContainerBlock>
     </Box>

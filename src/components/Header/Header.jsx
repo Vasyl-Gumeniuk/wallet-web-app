@@ -1,4 +1,3 @@
-import css from './Header.module.css';
 import sprite from '../../images/icons/sprite-all-icons.svg';
 import Logo from '../Logo/Logo';
 import {

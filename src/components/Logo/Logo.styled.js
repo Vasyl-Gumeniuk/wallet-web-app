@@ -17,10 +17,19 @@ export const AuthLogo = styled.div`
   gap: 15px;
 
   margin-bottom: ${({ type }) => {
-    if (type === 'header') {
-      return '0px';
+    switch (type) {
+      case 'header':
+        return `0px`;
+
+      case 'login':
+        return ` 60px`;
+
+      case 'registration':
+        return `60px`;
+
+      default:
+        return;
     }
-    return '60px';
   }};
   @media screen and (min-width: 768px) {
     gap: 20px;
