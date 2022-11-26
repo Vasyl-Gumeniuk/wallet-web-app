@@ -15,8 +15,13 @@ export const AuthLogo = styled.div`
   justify-content: center;
   align-items: center;
   gap: 15px;
-  margin-bottom: 60px;
 
+  margin-bottom: ${({ type }) => {
+    if (type === 'header') {
+      return '0px';
+    }
+    return '60px';
+  }};
   @media screen and (min-width: 768px) {
     gap: 20px;
   }

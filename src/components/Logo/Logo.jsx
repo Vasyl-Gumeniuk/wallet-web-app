@@ -1,9 +1,9 @@
 import sprite from '../../images/icons/sprite-all-icons.svg';
 import { AuthLogo, WalletLogo } from './Logo.styled';
 
-const Logo = () => {
+const Logo = ({ type }) => {
   return (
-    <AuthLogo>
+    <AuthLogo type={type}>
       <WalletLogo>
         <use href={sprite + '#icon-wallet'}></use>
       </WalletLogo>
