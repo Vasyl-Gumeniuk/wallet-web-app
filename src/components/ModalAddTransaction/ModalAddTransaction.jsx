@@ -1,16 +1,31 @@
-import { AiOutlineClose } from 'react-icons/ai';
+import React from 'react';
+import sprite from '../../images/icons/sprite-all-icons.svg';
 import { Modal } from '../Modal/Modal';
-import { Button } from '../Button/Button';
+import Button from '../Button/Button';
 import {
   Div,
   ButtonClose,
   Container,
-  Title,
+  TitleModal,
 } from './ModalAddTransaction.styled';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { transactionApi } from '../../redux/transactions/transactionApi';
 import Header from '../Header/Header';
+import Form from './Form/Form';
+import { useDispatch } from 'react-redux';
 
-export const ModalAddTransaction = ({ onClose, showModal }) => {
+const StateFull = {
+  type: 'expense',
+  category: '',
+  sum: '',
+  date: new Date(),
+  comment: '',
+};
+
+const ModalAddTransaction = ({ onClose }) => {
+  const [transaction, setTransaction] = React.useState(StateFull);
+  const dispatch = useDispatch();
+
   useEffect(() => {
     const closeModal = e => {
       if (e.code === 'Escape') {
@@ -25,25 +40,50 @@ export const ModalAddTransaction = ({ onClose, showModal }) => {
     };
   }, [onClose]);
 
+  const handleBackdropClick = e => {
+    if (e.currentTarget === e.target) {
+      onClose();
+    }
+  };
+
+  const handleInputChange = event => {
+    const { name, value, checked, type } = event.target;
+    const inputValue = type === 'checkbox' ? checked : value;
+
+    updateTransaction(name, inputValue);
+    console.log(event.target);
+    if (type === 'checkbox') {
+      console.log('test type', inputValue ? 'expense' : 'income');
+      updateTransaction('type', inputValue ? 'expense' : 'income');
+    }
+  };
+
+  const updateTransaction = (name, value) => {
+    setTransaction(prev => ({ ...prev, [name]: value }));
+  };
+
   return (
-    <Modal>
+    <Modal onClick={handleBackdropClick}>
       <Header />
       <Div>
-        <ButtonClose onClick={() => showModal(false)}>
-          <AiOutlineClose
-            sx={{
-              width: 16,
-              height: 16,
-              color: '#000000',
-            }}
-          />
+        <ButtonClose onClick={onClose}>
+          <svg width="16" height="16" fill="#000000" aria-label="buttonclose">
+            <use href={`${sprite}#icon-close`}></use>
+          </svg>
         </ButtonClose>
       </Div>
       <Container>
-        <Title>Add transaction</Title>
+        <TitleModal>Add transaction</TitleModal>
 
-        <Button type="submit">ADD</Button>
-        <Button type="reset">CANSEL</Button>
+        <Form
+          transaction={transaction}
+          updateTransaction={updateTransaction}
+          handleInputChange={handleInputChange}
+        />
+
+        <Button type="button" onClick={onClose}>
+          CANSEL
+        </Button>
       </Container>
     </Modal>
   );

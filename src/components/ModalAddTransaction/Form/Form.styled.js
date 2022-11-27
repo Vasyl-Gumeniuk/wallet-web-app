@@ -1,0 +1,166 @@
+import styled from 'styled-components';
+
+export const SelectContainer = styled.div`
+  margin-top: 40px;
+  cursor: pointer;
+`;
+
+export const MoneyDateContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 40px;
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    gap: 40px;
+  }
+  input {
+    margin: 0;
+    height: 34px;
+    width: 100%;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    outline: none;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: var(--color-black);
+    font-family: Circe;
+    @media screen and (min-width: $tablet) {
+      padding-left: 0;
+      text-align: center;
+    }
+    &::placeholder {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 27px;
+    }
+  }
+`;
+
+export const InputCategory = styled.input`
+margin: 0;
+  height: 34px;
+  width: 100%;
+  margin-top: 40px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  outline: none;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  color: black;
+  font-family: Circe;
+  resize: none;
+  overflow: hidden;
+  max-lines: 2;
+  outline-offset: 0;
+  &::placeholder {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: #bdbdbd;
+    font-family: Circe;
+  }
+  @media screen and (max-width: 767px) {
+    max-lines: 1;
+    height: 74px;
+`;
+
+export const DateContainer = styled.div`
+  position: relative;
+  input {
+    margin: 0;
+    height: 34px;
+    width: 100%;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    outline: none;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid var(--color-gray-form);
+    outline-offset: 0;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: var(--color-black);
+    font-family: Circe, sans-serif;
+  }
+  > svg {
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    @media screen and (min-width: 768px) {
+      margin-left: 20px;
+    }
+  }
+`;
+
+export const CommentContainer = styled.textarea`
+  margin: 0;
+  height: 34px;
+  width: 100%;
+  margin-top: 40px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  outline: none;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  color: black;
+  font-family: Circe;
+  resize: none;
+  overflow: hidden;
+  max-lines: 2;
+  outline-offset: 0;
+  &::placeholder {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: #bdbdbd;
+    font-family: Circe;
+  }
+  @media screen and (max-width: 767px) {
+    max-lines: 1;
+    height: 74px;
+  }
+`;
+export const ButtonAdd = styled.button`
+  width: 300px;
+  height: 50px;
+  background-color: #24cca7;
+  color: #4a56e2;
+  cursor: pointer;
+  border: 1 px solid #4a56e2;
+  box-shadow: 0px 6px 15px rgba(36, 204, 167, 0.5);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  transition: all 200ms ease-in-out;
+
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  :hover {
+    transform: scale(1.03);
+    background-color: #24cca7;
+    color: white;
+  }
+`;

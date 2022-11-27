@@ -8,7 +8,7 @@ export const Backdrop = styled.div`
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.25);
 `;
-export const ModalWindov = styled.div`
+export const ModalWindow = styled.div`
   width: 100%;
   height: 100vh;
   background-color: #ffffff;
