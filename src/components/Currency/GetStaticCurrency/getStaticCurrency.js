@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { reqOptionsEur, reqOptionsUsd, reqOptionsGbp } from './option';
+// import { reqOptionsEur, reqOptionsUsd, reqOptionsGbp } from './option';
 
 const baseURL = 'https://currency-exchange.p.rapidapi.com/exchange';
 
