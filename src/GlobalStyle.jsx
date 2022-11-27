@@ -3,14 +3,15 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyle = createGlobalStyle`
   body {
   margin: 0;
-  font-family: 'Circe', sans-serif;
-  /* color: ${p => p.theme.colors.primaryTextColor}; */
-  /* line-height: ${p => p.theme.lineHeights.body}; */
+  padding: 0
+  font-family: 'Circe', Poppins, sans-serif;
+  color: ${p => p.theme.colors.blackTextColor};
+  line-height: ${p => p.theme.lineHeights.body};
   }
-  /* main {
-    background-color: ${p => p.theme.colors.mainBg};
-  } */
-ul {
+  main {
+    background-color: ${p => p.theme.colors.primaryPageBgr};
+  }
+ul, li {
   list-style: none;
 }
 h1, h2, h3, h4, h5, h6, p, ul {
@@ -23,10 +24,10 @@ h1, h2, h3, h4, h5, h6, p, ul {
 button {
 cursor: pointer;
 padding: 0;
-color: ${p => p.theme.colors.primaryTextColor};
+color: ${p => p.theme.colors.blackTextColor};
 }
 a {
   text-decoration: none;
-  color: ${p => p.theme.colors.primaryTextColor};
+  color: ${p => p.theme.colors.blackTextColor};
 }
 `;
