@@ -11,6 +11,14 @@ export const ButtonClose = styled.button`
   display: flex;
   border: none;
   background-color: white;
+  :hover,
+  :fokus {
+    stroke: '#FF6596';
+  }
+
+  @media (max-width: 767px) {
+    display: none;
+  }
 `;
 
 export const Container = styled.section`
@@ -19,16 +27,15 @@ export const Container = styled.section`
   align-items: center;
 `;
 
-export const Title = styled.h1`
-font-family: Poppins;
-font-style: Regular;
-font-size: 24px;
-line-height: 36px;
-line-height: 100%;
-align: center;
-vertical align: top;
-color: black;
-display: flex;
-flex-direction: column;
-justify-content: center;
+export const TitleModal = styled.h1`
+  margin: 0;
+  margin-bottom: 40px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.5;
+  font-family: Poppins;
+  @media (max-width: 767px) {
+    font-size: 30px;
+  }
 `;

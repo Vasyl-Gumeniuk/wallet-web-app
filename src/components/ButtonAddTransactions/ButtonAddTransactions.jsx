@@ -1,11 +1,11 @@
-import Button from '../../components/Button/Button';
 import { ImPlus } from 'react-icons/im';
-import { Div, Wrapper } from './ButtonAddTransactions.styled';
+import { Div, BasButton } from './ButtonAddTransactions.styled';
+import sprite from '../../images/icons/sprite-all-icons.svg';
 import { useState } from 'react';
-import { ModalAddTransaction } from '../ModalAddTransaction/ModalAddTransaction';
-import { Loader } from '../Loader/Loader';
+import ModalAddTransaction from '../ModalAddTransaction/ModalAddTransaction';
+import Loader from '../Loader/Loader';
 
-export const ButtonAddTransactions = () => {
+const ButtonAddTransactions = () => {
   const [showModal, setShowModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -13,19 +13,17 @@ export const ButtonAddTransactions = () => {
     setShowModal(showModal => !showModal);
   };
 
+  const onClickButton = () => {
+    setShowModal(true);
+  };
   return (
-    <Wrapper>
+    <>
       <Div>
-        <Button type="button" onClick={() => setShowModal(true)}>
-          <ImPlus
-            sx={{
-              width: 44,
-              height: 44,
-              borderRadius: 50,
-              color: 'white',
-            }}
-          />
-        </Button>
+        <BasButton type="button" onClick={onClickButton}>
+          <svg width="20" height="20" aria-label="plus">
+            <use href={`${sprite}#icon-plus`}></use>
+          </svg>
+        </BasButton>
       </Div>
       {isLoading && <Loader />}
       {showModal && (
@@ -34,7 +32,7 @@ export const ButtonAddTransactions = () => {
           toggleModal={() => setShowModal(s => !s)}
         />
       )}
-    </Wrapper>
+    </>
   );
 };
 
