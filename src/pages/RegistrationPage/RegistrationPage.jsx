@@ -7,7 +7,7 @@ const RegistrationPage = () => {
   return (
     <Box pt={32} pb={32}>
       <ContainerBlock>
-        <Logo />
+        <Logo type="registration" />
         <RegistrationForm />
       </ContainerBlock>
     </Box>
