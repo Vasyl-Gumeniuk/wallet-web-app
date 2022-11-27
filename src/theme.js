@@ -19,12 +19,29 @@ export const theme = {
     activeButtonBg: '#24CCA7',
     activeButtonColor: '#FFFFFF',
     unactiveButtonColor: '#4A56E2',
+
+    // Додано наступні стилі!
+    blackTextColor: 'rgba(0, 0, 0)',
+    whiteTextColor: 'rgba(255, 255, 255)',
+    grayTextColor: 'rgba(224, 224, 224, 1)',
+    blueTextColor: 'rgba(74, 86, 226, 1)',
+    redTextColor: 'rgba(255, 101, 150, 1)',
+    greenTextColor: 'rgba(36, 204, 167, 1)',
+
+    primaryPageBgr: 'rgba(231,234,242)',
+    secondaryPageBgr: 'rgba(255, 255, 255, 0.4)',
+
+    currencyTabl: 'rgba((74,86,226)',
+
+    formActivBtnColor: 'rgba(74, 86, 226, 1)',
+    formBtnBorder: 'rgba(74, 86, 226, 1)',
   },
-  space: [0, 2, 13, 20, 16, 32, 60, 128, 256, 'auto', 140, 100],
+  space: [0, 2, 4, 8, 16, 32, 64, 128, 256, 'auto', 140, 100],
   fontSizes: {
     sm: '12px',
-    m: '18px',
-    l: '40px',
+    m: '16px',
+    l: '18px',
+    xl: '30px',
   },
   lineHeights: {
     body: 1.5,
