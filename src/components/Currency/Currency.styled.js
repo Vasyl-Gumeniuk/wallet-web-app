@@ -53,66 +53,80 @@ export const Wrapper = styled.table`
    export const Cell = styled.td`
    padding-top: 12px;
    padding-left: 20px;
-   padding-bottom: 11px; 
+   padding-bottom: 12px; 
    font-family: 'Circe';
    font-size: 16px;
    line-height: 24px;
    border:none;
+   font-weight: 400;
 
    
   @media screen and (min-width: 1024px) {
-    padding-left: 58px;
+    padding-left: 44px;
   }
 
   @media screen and (min-width: 2560px) {
-    padding-left: 58px;
+    padding-left: 44px;
     
   }
+  @media screen and (min-width: 768px) {
+    padding-bottom:16px;
+   }
    `;
    export const CellLast = styled.td`
    padding-left: 20px;
    padding-top: 12px;
    padding-right: 20px;
-   padding-bottom: 11px; 
-   font-family: 'Circe';
-   font-size: 16px;
-   line-height: 24px;
-
-   @media screen and (min-width: 1024px) {
-    padding-left: 58px;
-    padding-right: 58px;
-  }
-
-  @media screen and (min-width: 2560px) {
-    padding-left: 58px;
-    padding-right: 58px;
-    
-  }
-
-   `;
-   export const LineNotFirst = styled.td`
-   padding-left: 20px;
-   padding-right: 20px;
    padding-bottom: 12px; 
    font-family: 'Circe';
    font-size: 16px;
    line-height: 24px;
+   font-weight: 400;
+   text-align: center;
+
    @media screen and (min-width: 1024px) {
-    padding-left: 58px;
+    padding-left: 26px;
+    padding-right: 64px;
   }
 
   @media screen and (min-width: 2560px) {
-    padding-left: 58px;
+    padding-left: 26px;
+    padding-right: 64px;
     
   }
+  @media screen and (min-width: 768px) {
+   padding-bottom:16px;
+  }
   `;
-  export const Foot = styled.tfoot`
+  export const CellLastBody = styled.td`
+  padding-left: 20px;
+  padding-top: 12px;
+  padding-right: 20px;
+  padding-bottom: 12px; 
+  font-family: 'Circe';
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  @media screen and (min-width: 1024px) {
+   padding-left: 44px;
+   padding-right: 64px;
+   padding-top: 22px;
+ }
+
+ @media screen and (min-width: 2560px) {
+   padding-left: 44px;
+   padding-right: 64px;
+   padding-top: 22px;
+   
+ }
+ @media screen and (min-width: 768px) {
+  padding-bottom:16px;
+ }
+ `;
+   export const Foot = styled.tfoot`
    dispay: none;  
-   background-image: url(${vector});
-   background-repeat: no-repeat;
-   background-position: left bottom;
-   background-size: contain;
- @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1024px) {
   dispay: block;  
   height: 134px;
   }
@@ -121,3 +135,105 @@ export const Wrapper = styled.table`
    height: 134px;
  }
   `;
+  export const CellMiddle = styled.td`
+  padding-top: 12px;
+  padding-left: 33px;
+  padding-right: 33px;
+  padding-bottom: 12px; 
+  font-family: 'Circe';
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  @media screen and (min-width: 768px) {
+    padding-left: 61px;
+    padding-right: 61px;
+    padding-bottom:16px;
+  }
+  @media screen and (min-width: 1024px) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media screen and (min-width: 2560px) {
+    padding-left: 40px;
+    padding-right: 40px;
+    
+  }
+    `;
+   export const CellBody = styled.td`
+   padding-top: 12px;
+   padding-left: 20px;
+   font-family: 'Circe';
+   font-size: 16px;
+   line-height: 24px;
+   border:none;
+   font-weight: 400;
+   @media screen and (min-width: 1024px) {
+    padding-left: 44px;
+    padding-right: 44px;
+    padding-top: 22px;
+  }
+
+Kristi, [26.11.2022 22:41]
+@media screen and (min-width: 2560px) {
+    padding-left: 44px;
+    padding-right: 44px;
+    padding-top: 22px;
+    
+  }
+ `;
+ export const CellMiddleBody = styled.td`
+  padding-top: 12px;
+  padding-left: 33px;
+  padding-right: 33px;
+  font-family: 'Circe';
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  text-align: center;
+  @media screen and (min-width: 768px) {
+    padding-left: 61px;
+    padding-right: 61px;
+  }
+  @media screen and (min-width: 1024px) {
+    padding-left: 29px;
+    padding-right: 29px;
+    padding-top: 22px;
+  }
+
+  @media screen and (min-width: 2560px) {
+    padding-left: 29px;
+    padding-right: 29px;
+    padding-top: 22px;
+    
+  }
+    `;
+    export const CellMiddleBodyLast = styled.td`
+    padding-left: 20px;
+    padding-top: 12px;
+    padding-right: 20px;
+    padding-bottom: 12px; 
+    font-family: 'Circe';
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    text-align:center;
+    
+  
+    @media screen and (min-width: 1024px) {
+     padding-left: 29px;
+     padding-right: 29px;
+     padding-top: 22px;
+   }
+  
+   @media screen and (min-width: 2560px) {
+     padding-left: 29px;
+     padding-right: 29px;
+     padding-top: 22px;
+     
+   }
+   @media screen and (min-width: 768px) {
+    padding-bottom:16px;
+    
+   }
+    `;
