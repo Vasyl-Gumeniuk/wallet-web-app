@@ -3,42 +3,80 @@ import {Header} from './Currency.styled'
 import {Body} from './Currency.styled'
 import {Cell} from './Currency.styled'
 import {CellLast} from './Currency.styled'
-import {LineNotFirst} from './Currency.styled'
 import {Foot} from './Currency.styled'
 import {Line} from './Currency.styled'
-import {useGetStaticCurrency} from './GetStaticCurrency/getStaticCurrency'
+import Loader from "../Loader/Loader";
+import {CellMiddle} from './Currency.styled'
+import {useEffect, useState } from 'react';
+import {CellBody} from './Currency.styled'
+import {CellMiddleBody} from './Currency.styled'
+import {CellLastBody} from './Currency.styled'
+import {CellMiddleBodyLast} from './Currency.styled'
 export default function Currency() {
-    const {eur, usd, gbp} = useGetStaticCurrency();
-    return (
-        <Wrapper>
+    const today = Date.now()
+    const [currency, SetCurrency] = useState(() => showCurrency());
+     async function showCurrency() {
+        let response = await fetch(
+          'https://api.monobank.ua/bank/currency'
+        );
+        if (response.status === 200) {
+          let json = await response.json();
+          localStorage.setItem('time', JSON.stringify(today));
+          SetCurrency(filterCurrency(json))
+          return filterCurrency(json);
+        }
+        throw new Error(response.status);
+      }
+      useEffect(()=>{
+        let time = JSON.parse(localStorage.getItem('time'));
+        if(time + 3600000 < today) {
+          showCurrency()
+        }
+      })
+      function filterCurrency(array) {
+        let currencyUSD = array.filter(item => item.currencyCodeA === 840)
+        let currencyEUR = array.filter(item => item.currencyCodeA === 978)
+        let currencyGBP = array.filter(item => item.currencyCodeA === 826)
+        var currencyArray = currencyUSD.concat(currencyEUR, currencyGBP);
+        return currencyArray
+      }
+      let dataforRendering
+      if(currency[0] === undefined) {
+        dataforRendering = <Loader/>
+      }
+      else {
+        dataforRendering = (
+         <Wrapper>
         <Header>
         <Line>
         <Cell>Currency</Cell>
-        <Cell>Purchase</Cell>
+        <CellMiddle>Purchase</CellMiddle>
         <CellLast>Sale</CellLast>
         </Line>
         </Header>
         <Body>
         <Line>
-        <Cell>USD</Cell>
-        <Cell>{usd}</Cell>
-        <CellLast>{usd}</CellLast>
+        <CellBody>USD</CellBody>
+        <CellMiddleBody>{currency[0].rateBuy}</CellMiddleBody>
+        <CellBody>{currency[0].rateSell.toFixed(2)}</CellBody>
         </Line>
         <Line>
-        <LineNotFirst>EUR</LineNotFirst>
-        <LineNotFirst>{eur}</LineNotFirst>
-        <LineNotFirst>{eur}</LineNotFirst>
+        <CellBody>EUR</CellBody>
+        <CellMiddleBody>{currency[1].rateBuy}</CellMiddleBody>
+        <CellBody>{currency[1].rateSell.toFixed(2)}</CellBody>
         </Line>
         <Line>
-        <LineNotFirst>GBP</LineNotFirst>
-        <LineNotFirst>{gbp}</LineNotFirst>
-        <LineNotFirst>{gbp}</LineNotFirst>
+        <Cell>GBP</Cell>
+        <CellMiddleBodyLast>{currency[3].rateCross.toFixed(2)}</CellMiddleBodyLast>
+        <CellLastBody>{currency[3].rateCross.toFixed(2)}</CellLastBody>
         </Line>
         </Body>
         <Foot/>
     
      </Wrapper>
-    
-     
-    );
+        )
+      }
+    return (
+    dataforRendering
+ );
 };
