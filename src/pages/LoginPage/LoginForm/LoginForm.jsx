@@ -54,6 +54,7 @@ const LoginForm = () => {
               value={values.password}
               passwordError={errors.password}
               touchedError={touched.password}
+              registration={false}
             />
             <ul>
               <ButtonElement>

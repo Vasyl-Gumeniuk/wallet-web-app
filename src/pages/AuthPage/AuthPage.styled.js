@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const AuthSection = styled.section`
+  position: relative;
+  overflow: hidden;
   @media screen and (min-width: 768px) {
     width: 100vw;
     height: 100vh;
