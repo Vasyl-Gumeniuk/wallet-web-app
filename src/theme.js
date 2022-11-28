@@ -36,7 +36,7 @@ export const theme = {
     formActivBtnColor: 'rgba(74, 86, 226, 1)',
     formBtnBorder: 'rgba(74, 86, 226, 1)',
   },
-  space: [0, 2, 4, 8, 16, 32, 64, 128, 256, 'auto', 140, 100],
+  space: [0, 2, 4, 8, 16, 32, 64, 128, 256, 'auto', 20],
   fontSizes: {
     sm: '12px',
     m: '16px',
