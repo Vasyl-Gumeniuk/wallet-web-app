@@ -9,22 +9,18 @@ export const Backdrop = styled.div`
   background-color: rgba(0, 0, 0, 0.25);
 `;
 export const ModalWindow = styled.div`
-  width: 100%;
-  height: 100vh;
   background-color: #ffffff;
 
-  @media (min-width: 768px) {
-    position: fixed;
-    width: 540px;
-    height: 508px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 540px;
-    height: 508px;
-    border-radius: 20px;
+  @media (max-width: 767) {
+    width: 100vh;
+    height: 100vh;
   }
 
-  @media (min-width: 1260px) {
-  }
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 540px;
+  max-height: 608px;
+  border-radius: 20px;
 `;

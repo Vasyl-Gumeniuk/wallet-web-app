@@ -11,8 +11,8 @@ export const ButtonClose = styled.button`
   display: flex;
   border: none;
   background-color: white;
-  :hover,
-  :fokus {
+  &:hover,
+  &:focus {
     stroke: '#FF6596';
   }
 
@@ -37,5 +37,35 @@ export const TitleModal = styled.h1`
   font-family: Poppins;
   @media (max-width: 767px) {
     font-size: 30px;
+  }
+`;
+
+export const ButtonCancel = styled.button`
+  display: block;
+  width: 300px;
+  height: 50px;
+  color: rgba(74, 86, 226, 1);
+  cursor: pointer;
+  border-radius: 20px;
+  border: 1px solid rgba(74, 86, 226, 1);
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+
+  background-color: white;
+  transition: all 200ms ease-in-out;
+
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 60px;
+
+  &:hover {
+    transform: scale(1.03);
   }
 `;
