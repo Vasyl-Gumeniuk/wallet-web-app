@@ -92,7 +92,7 @@ const Form = () => {
           <DateContainer>
             <DatePicker
               selected={date}
-              dateFormat="dd.mm.yyyy"
+              dateFormat="dd.MM.yyyy"
               onChange={date => setDate(date)}
             />
             <svg width="18" height="20" aria-label="calendar">
