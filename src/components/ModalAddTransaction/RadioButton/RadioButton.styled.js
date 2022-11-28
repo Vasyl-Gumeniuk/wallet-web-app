@@ -8,7 +8,7 @@ export const TransactionButton = styled.div`
   margin: 0 auto;
 `;
 
-export const TextButton = styled.p`
+export const TextButtonExpense = styled.p`
   margin: 0;
   font-weight: 700;
   font-size: 16px;
@@ -16,10 +16,25 @@ export const TextButton = styled.p`
   color: #e0e0e0;
   font-family: Circe;
   color: ${p => {
-    if (p.children === 'Income') {
-      return p.type ? '' : '#24cca7';
+    if (p.type === 'expense') {
+      return '#ff6596';
     } else {
-      return p.type ? '#ff6596' : '';
+      return '';
+    }
+  }};
+`;
+export const TextButtonIncome = styled.p`
+  margin: 0;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.47;
+  color: #e0e0e0;
+  font-family: Circe;
+  color: ${p => {
+    if (p.type === 'income') {
+      return '#24cca7';
+    } else {
+      return '';
     }
   }};
 `;
