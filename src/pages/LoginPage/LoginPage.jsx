@@ -9,6 +9,7 @@ import frame2x from '../../images/loginPage/tab/Frame-2x.png';
 const LoginPage = () => {
   const isNotMobile = useMedia('(min-width: 768px)');
   const isDesktop = useMedia('(min-width: 1280px)');
+
   return (
     <AuthSection>
       <AuthContainer>
