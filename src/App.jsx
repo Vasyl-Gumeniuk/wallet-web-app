@@ -20,7 +20,7 @@ import ModalAddTransaction from './components/ModalAddTransaction/ModalAddTransa
 export const App = () => {
   const token = useSelector(state => state.authSlice.token);
   const skip = token === null ? true : false;
-  const { data: currentUser, isFetching } = useFetchCurrentUserQuery('', {
+  const { data: currentUser } = useFetchCurrentUserQuery('', {
     skip,
   });
   const dispatch = useDispatch();
@@ -40,7 +40,7 @@ export const App = () => {
             <>
               <Hello />
               <NavBar />
-              <ModalAddTransaction />
+              {/* <ModalAddTransaction /> */}
               <Container>
                 <Outlet />
               </Container>
