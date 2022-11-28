@@ -24,3 +24,37 @@ export const ContainerBlock = styled.div`
     padding-right: ${p => p.theme.space[0]}px;
   }
 `;
+
+export const LoginContainer = styled(ContainerBlock)`
+  margin: 0;
+  z-index: 5;
+  padding-top: 107px;
+  padding-bottom: 107px;
+  background-color: ${p => p.theme.colors.secondaryTextColor};
+  @media screen and (min-width: 768px) {
+    max-width: 533px;
+    max-height: 468px;
+    padding-top: 40px;
+    padding-bottom: 62px;
+    position: ${p => p.theme.position.absolute};
+    top: 360px;
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: ${p => p.theme.radii.exlg};
+  }
+  @media screen and (min-width: 1280px) {
+    top: 136px;
+    right: 91px;
+    transform: translate(0);
+  } ;
+`;
+
+export const RegisterContainer = styled(LoginContainer)`
+  @media screen and (min-width: 768px) {
+    max-height: 616px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    top: 52px;
+  } ;
+`;

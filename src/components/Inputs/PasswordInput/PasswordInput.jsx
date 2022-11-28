@@ -17,6 +17,7 @@ const PasswordInput = ({
   passwordError,
   touchedError,
   handleChange,
+  registration = true,
 }) => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -45,7 +46,9 @@ const PasswordInput = ({
           {showPassword ? <BiShowAlt /> : <BiHide />}
         </HideShowButton>
       </InputContent>
-      <PasswordStrengthBar password={value} shortScoreWord="" />
+      {registration && (
+        <PasswordStrengthBar password={value} shortScoreWord="" />
+      )}
       <FormError name="password" />
     </InputBlock>
   );
