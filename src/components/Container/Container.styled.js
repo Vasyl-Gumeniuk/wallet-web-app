@@ -25,7 +25,9 @@ export const ContainerBlock = styled.div`
   }
 `;
 
-export const AuthContainer = styled(ContainerBlock)`
+export const LoginContainer = styled(ContainerBlock)`
+  margin: 0;
+  z-index: 5;
   padding-top: 107px;
   padding-bottom: 107px;
   background-color: ${p => p.theme.colors.secondaryTextColor};
@@ -44,5 +46,15 @@ export const AuthContainer = styled(ContainerBlock)`
     top: 136px;
     right: 91px;
     transform: translate(0);
+  } ;
+`;
+
+export const RegisterContainer = styled(LoginContainer)`
+  @media screen and (min-width: 768px) {
+    max-height: 616px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    top: 52px;
   } ;
 `;
