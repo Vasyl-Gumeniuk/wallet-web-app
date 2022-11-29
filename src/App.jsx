@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useFetchCurrentUserQuery } from './redux/auth/authApi';
 import { fetchUser } from './redux/auth/authSlice';
 import StatisticsPage from './pages/StatisticsPage';
+import Table from '../src/components/Table';
 
 // import PrivateRouter from './components/Navigation/PrivateRouter';
 // import PublicRouter from './components/Navigation/PublicRouter';
@@ -39,12 +40,12 @@ export const App = () => {
             // <PrivateRouter>
             <>
               <Hello />
-              
+
               {/* <NavBar /> */}
               {/* <Container> */}
               {/* <ModalAddTransaction /> */}
 
-                <Outlet />
+              <Outlet />
               {/* </Container> */}
             </>
             // </PrivateRouter>
@@ -62,6 +63,7 @@ export const App = () => {
               </Mobile>
             }
           ></Route>
+          <Route path="table" element={<Table />}></Route>
         </Route>
         <Route
           path="/login"
