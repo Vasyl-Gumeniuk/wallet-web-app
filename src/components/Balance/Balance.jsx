@@ -3,6 +3,7 @@ import {store} from '../../redux/store'
 import {BalanceLabel} from './Balance.styled'
 import {Wrapper} from './Balance.styled';
 import {Sum} from './Balance.styled'
+import Container from "../Container";
 export default function Balance() {
     const [balance, SetBalance] = useState(null);
     async function showBalance() {
@@ -25,9 +26,11 @@ export default function Balance() {
         
       },[])
       return (
+        <Container>
         <Wrapper>
         <BalanceLabel>Your balance</BalanceLabel>
         <Sum>₴ 24 000.00</Sum>
         </Wrapper>
+        </Container>
       )
 }

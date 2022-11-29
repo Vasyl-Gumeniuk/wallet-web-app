@@ -11,7 +11,8 @@ import {useEffect, useState} from 'react';
 import {CellBody} from './Currency.styled'
 import {CellMiddleBody} from './Currency.styled'
 import {CellLastBody} from './Currency.styled'
-import {CellMiddleBodyLast} from './Currency.styled'
+import {CellMiddleBodyLast, Main} from './Currency.styled'
+import Container from "../Container";
 export default function Currency() {
      const [currency, SetCurrency] = useState([]);
      useEffect(() =>{
@@ -87,6 +88,7 @@ export default function Currency() {
         )
       }
     return (
-    dataforRendering
+      <Container>
+      <Main>{dataforRendering}</Main></Container>
  );
 };

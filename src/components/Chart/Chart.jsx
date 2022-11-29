@@ -1,7 +1,7 @@
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import React, { useState } from 'react';
-
+import Container from '../Container/Container';
 import {
   ChartContainer,
   Title,
@@ -109,6 +109,7 @@ function Chart() {
   const years = makeYearArray();
 
   return (
+    <Container>
     <ChartContainer>
       <DiagramThumb>
         <FirstPart>
@@ -161,6 +162,7 @@ function Chart() {
         </SecondPart>
       </DiagramThumb>
     </ChartContainer>
+    </Container>
   );
 }
 

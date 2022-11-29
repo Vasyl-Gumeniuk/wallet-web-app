@@ -39,11 +39,13 @@ export const App = () => {
             // <PrivateRouter>
             <>
               <Hello />
-              <NavBar />
+              
+              {/* <NavBar /> */}
+              {/* <Container> */}
               {/* <ModalAddTransaction /> */}
-              <Container>
+
                 <Outlet />
-              </Container>
+              {/* </Container> */}
             </>
             // </PrivateRouter>
           }

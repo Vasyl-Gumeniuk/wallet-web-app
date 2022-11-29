@@ -17,18 +17,19 @@ padding-bottom:12px;
 background: #FFFFFF;
 border-radius: 30px;
 display: inline-block;
+margin-top:28px;
 @media screen and (min-width: 768px) {
   padding-left: 40px;
   padding-right: 121px;
 }
 @media screen and (min-width: 1024px) {
-  padding-left: 10px;
+  padding-left: 40px;
   padding-right: 180px;
   
 }
 
 @media screen and (min-width: 2560px) {
-  padding-left: 10px;
+  padding-left: 40px;
   padding-right: 180px;
   
 }
