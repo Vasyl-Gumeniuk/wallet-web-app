@@ -10,7 +10,7 @@ import {
   Exit,
 } from './Header.styled';
 export default function Header({ currentUser }) {
-  const name = currentUser.data.name;
+  const name = currentUser?.data.name;
   return (
     <Head>
       <Wrapper>
