@@ -46,11 +46,15 @@ const Form = () => {
         return;
     }
   };
+  const getSelectDate = () => {
+    return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
+  };
+  const selectDate = getSelectDate();
   const transactionState = {
     type,
     category,
     sum,
-    date,
+    date: selectDate,
     comment,
   };
   const onAddTransaction = async e => {
