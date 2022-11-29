@@ -1,12 +1,9 @@
-import Chart from '../../components/Chart';
-import Currency from '../../components/Currency'
 
+import DasboardPage from '../../components/DashboardPage/DashboardPage'
 const StatisticsPage = () => {
   return (
-    <div>
-      <Currency/>
-     <Chart />
-    </div>
+    <DasboardPage>
+    </DasboardPage>
   );
 };
 

@@ -38,10 +38,10 @@ export const App = () => {
             // <PrivateRouter>
             <>
               <Hello />
-              <NavBar />
-              <Container>
+              {/* <NavBar /> */}
+              {/* <Container> */}
                 <Outlet />
-              </Container>
+              {/* </Container> */}
             </>
             // </PrivateRouter>
           }
