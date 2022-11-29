@@ -13,13 +13,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useFetchCurrentUserQuery } from './redux/auth/authApi';
 import { fetchUser } from './redux/auth/authSlice';
 import StatisticsPage from './pages/StatisticsPage';
+
 // import PrivateRouter from './components/Navigation/PrivateRouter';
 // import PublicRouter from './components/Navigation/PublicRouter';
 // PrivateRouter,PublicRouter потрібно буде розкемнтувати щоб все запроцювало. Лишаю закоментовунами щоб кожного разу не логінитись так буду легше працюватись)
 export const App = () => {
   const token = useSelector(state => state.authSlice.token);
   const skip = token === null ? true : false;
-  const { data: currentUser, isFetching } = useFetchCurrentUserQuery('', {
+  const { data: currentUser } = useFetchCurrentUserQuery('', {
     skip,
   });
   const dispatch = useDispatch();
@@ -38,8 +39,11 @@ export const App = () => {
             // <PrivateRouter>
             <>
               <Hello />
+              
               {/* <NavBar /> */}
               {/* <Container> */}
+              {/* <ModalAddTransaction /> */}
+
                 <Outlet />
               {/* </Container> */}
             </>

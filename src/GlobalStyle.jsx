@@ -4,7 +4,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
   margin: 0;
   padding: 0
-  font-family: 'Circe', Poppins, sans-serif;
+  font-family: 'Poppins, 'Circe', sans-serif;
   color: ${p => p.theme.colors.blackTextColor};
   line-height: ${p => p.theme.lineHeights.body};
   }

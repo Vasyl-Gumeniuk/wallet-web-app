@@ -1,16 +1,16 @@
-import { Box } from '../../Box';
-import { ContainerBlock } from '../../components/Container/Container.styled';
+import { LoginContainer } from '../../components/Container/Container.styled';
 import Logo from '../../components/Logo';
+import AuthPage from '../AuthPage/AuthPage';
 import LoginForm from './LoginForm';
 
 const LoginPage = () => {
   return (
-    <Box pt={107} pb={107}>
-      <ContainerBlock>
+    <AuthPage>
+      <LoginContainer>
         <Logo type="login" />
         <LoginForm />
-      </ContainerBlock>
-    </Box>
+      </LoginContainer>
+    </AuthPage>
   );
 };
 

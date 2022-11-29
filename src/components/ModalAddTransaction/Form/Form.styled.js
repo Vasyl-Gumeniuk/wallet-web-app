@@ -42,7 +42,7 @@ export const MoneyDateContainer = styled.div`
 `;
 
 export const InputCategory = styled.input`
-margin: 0;
+  margin: 0;
   height: 34px;
   width: 100%;
   margin-top: 40px;
@@ -71,6 +71,7 @@ margin: 0;
   @media screen and (max-width: 767px) {
     max-lines: 1;
     height: 74px;
+  }
 `;
 
 export const DateContainer = styled.div`
@@ -135,18 +136,18 @@ export const CommentContainer = styled.textarea`
   }
 `;
 export const ButtonAdd = styled.button`
+  display: block;
   width: 300px;
   height: 50px;
-  background-color: #24cca7;
-  color: #4a56e2;
+  color: white;
   cursor: pointer;
-  border: 1 px solid #4a56e2;
-  box-shadow: 0px 6px 15px rgba(36, 204, 167, 0.5);
   border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
+  border: none;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+
+  background-color: #24cca7;
   transition: all 200ms ease-in-out;
 
   font-family: 'Circe';
@@ -158,9 +159,7 @@ export const ButtonAdd = styled.button`
   letter-spacing: 0.1em;
   text-transform: uppercase;
 
-  :hover {
+  &:hover {
     transform: scale(1.03);
-    background-color: #24cca7;
-    color: white;
   }
 `;
