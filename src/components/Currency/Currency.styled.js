@@ -236,9 +236,16 @@ Kristi, [26.11.2022 22:41]
    }
     `;
     export const Main = styled.div`
-    margin-top: 32px;
-    display: flex;
-    align-items: center;
-    justify content center
+     @media screen and (min-width: 1024px) {
+      margin-top: 32px;
+     
+    }
+  
+    @media screen and (min-width: 2560px) {
+      margin-top: 32px;
+      
+     
+     
+    }
 
     `

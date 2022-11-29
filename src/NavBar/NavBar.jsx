@@ -1,12 +1,10 @@
 import { ReactComponent as ReactSprite } from '../images/icons/sprite-all-icons.svg';
-import Container from '../components/Container/Container';
 import { List, Item, Icon, LinkStyled } from './NavBar.styled';
 import { Mobile, Default } from '../services/mediaQuery';
 
 export const NavBar = () => {
   return (
-    <Container>
-      <nav>
+     <nav>
         <List>
           <Item>
             <ReactSprite />
@@ -36,6 +34,5 @@ export const NavBar = () => {
           </Mobile>
         </List>
       </nav>
-    </Container>
-  );
+    );
 };

@@ -3,15 +3,17 @@ import { NavBar } from '../../NavBar/NavBar';
 import Chart from '../Chart';
 import Currency from '../Currency';
 import Balance from '../Balance'
-import {Wrapper, Main, NavContainer, ChatContainer} from './Dashboard.styled';
+import {Wrapper, Main, NavContainer, ChatContainer, NavBalance} from './Dashboard.styled';
 export default function DashboardPage() {
     return (
         <Wrapper>
         <Container>
         <Main>
-       <NavContainer>    
+       <NavContainer> 
+        <NavBalance>   
        <NavBar/>
        <Balance/>
+       </NavBalance>
        <Currency/>
        </NavContainer>
        <ChatContainer>

@@ -88,7 +88,10 @@ export default function Currency() {
         )
       }
     return (
-      <Container>
-      <Main>{dataforRendering}</Main></Container>
+     <Main> {
+     dataforRendering
+    }
+     </Main>
+    
  );
 };

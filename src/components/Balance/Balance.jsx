@@ -26,11 +26,9 @@ export default function Balance() {
         
       },[])
       return (
-        <Container>
-        <Wrapper>
+         <Wrapper>
         <BalanceLabel>Your balance</BalanceLabel>
         <Sum>₴ 24 000.00</Sum>
         </Wrapper>
-        </Container>
-      )
+       )
 }
