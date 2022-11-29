@@ -1,11 +1,10 @@
-import { ImPlus } from 'react-icons/im';
 import { Div, BasButton } from './ButtonAddTransactions.styled';
 import sprite from '../../images/icons/sprite-all-icons.svg';
 import { useState } from 'react';
 import ModalAddTransaction from '../ModalAddTransaction/ModalAddTransaction';
 import Loader from '../Loader/Loader';
 
-const ButtonAddTransactions = () => {
+const ButtonAddTransactions = ({ currentUser }) => {
   const [showModal, setShowModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -30,6 +29,7 @@ const ButtonAddTransactions = () => {
         <ModalAddTransaction
           onClose={onToggleModal}
           toggleModal={() => setShowModal(s => !s)}
+          currentUser={currentUser}
         />
       )}
     </>
