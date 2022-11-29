@@ -235,3 +235,10 @@ Kristi, [26.11.2022 22:41]
     
    }
     `;
+    export const Main = styled.div`
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    justify content center
+
+    `
