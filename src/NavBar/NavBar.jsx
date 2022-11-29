@@ -10,7 +10,7 @@ export const NavBar = () => {
         <List>
           <Item>
             <ReactSprite />
-            <LinkStyled to="home">
+            <LinkStyled to="/home">
               <Icon>
                 <use href="#icon-home"></use>
               </Icon>
@@ -18,7 +18,7 @@ export const NavBar = () => {
             </LinkStyled>
           </Item>
           <Item>
-            <LinkStyled to="statistics">
+            <LinkStyled to="/statistics">
               <Icon>
                 <use href="#icon-statistica"></use>
               </Icon>
@@ -27,7 +27,7 @@ export const NavBar = () => {
           </Item>
           <Mobile>
             <Item>
-              <LinkStyled to="currency">
+              <LinkStyled to="/currency">
                 <Icon>
                   <use href="#icon-dollar"></use>
                 </Icon>

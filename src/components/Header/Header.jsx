@@ -1,4 +1,3 @@
-import { useSelector } from 'react-redux';
 import sprite from '../../images/icons/sprite-all-icons.svg';
 import Logo from '../Logo/Logo';
 import {
