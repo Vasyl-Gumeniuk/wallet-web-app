@@ -1,4 +1,4 @@
-import Hello from './components/Header/Header';
+import Header from './components/Header/Header';
 import { GlobalStyle } from './GlobalStyle';
 import LoginPage from './pages/LoginPage';
 import RegistrationPage from './pages/RegistrationPage';
@@ -14,7 +14,7 @@ import { useFetchCurrentUserQuery } from './redux/auth/authApi';
 import { fetchUser } from './redux/auth/authSlice';
 import StatisticsPage from './pages/StatisticsPage';
 import Table from '../src/components/Table';
-
+import ModalAddTransaction from './components/ModalAddTransaction/ModalAddTransaction';
 // import PrivateRouter from './components/Navigation/PrivateRouter';
 // import PublicRouter from './components/Navigation/PublicRouter';
 // PrivateRouter,PublicRouter потрібно буде розкемнтувати щоб все запроцювало. Лишаю закоментовунами щоб кожного разу не логінитись так буду легше працюватись)
@@ -39,7 +39,7 @@ export const App = () => {
           element={
             // <PrivateRouter>
             <>
-              <Hello />
+              <Header currentUser={currentUser} />
 
               {/* <NavBar /> */}
               {/* <Container> */}

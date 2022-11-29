@@ -39,10 +39,9 @@ export const authApi = createApi({
         };
       },
     }),
-    logOut: builder.mutation({
+    logOut: builder.query({
       query: () => ({
         url: `/user/auth/logout`,
-        method: 'POST',
         providesTags: ['User'],
       }),
     }),
@@ -58,6 +57,6 @@ export const authApi = createApi({
 export const {
   useRegisterMutation,
   useLogInMutation,
-  useLogOutMutation,
+  useLogOutQuery,
   useFetchCurrentUserQuery,
 } = authApi;
