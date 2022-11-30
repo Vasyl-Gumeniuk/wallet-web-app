@@ -3,15 +3,15 @@ import bg from '../../images/dashboard/bg.png';
 import line from '../../images/dashboard/line.svg'
 export const Wrapper = styled.div`
   background: url(${bg}) no-repeat center center fixed;
-  background-repeat: no-repeat;
+   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   display: flex;
   justify-content: center;
   margin: 0;
   height: 100vh;
- 
-  
+  overflow-y: scroll;
+   
 `;
 export const Main = styled.div`
   display: flex;
