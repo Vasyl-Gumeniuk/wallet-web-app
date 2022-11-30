@@ -20,7 +20,7 @@ export default function DashboardPage({ currentUser, from }) {
           <NavContainer>
             <NavBar />
             <Balance currentUser={currentUser} />
-            {/* <Currency /> */}
+            <Currency />
           </NavContainer>
           <ChatContainer>
             {from === FROM.home ? <Table /> : <Chart />}

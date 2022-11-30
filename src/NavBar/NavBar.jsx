@@ -5,8 +5,7 @@ import { Mobile, Default } from '../services/mediaQuery';
 
 export const NavBar = () => {
   return (
-    <Container>
-      <nav>
+     <nav>
         <List>
           <Item>
             <ReactSprite />
@@ -36,6 +35,5 @@ export const NavBar = () => {
           </Mobile>
         </List>
       </nav>
-    </Container>
-  );
+    );
 };

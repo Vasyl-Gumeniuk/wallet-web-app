@@ -10,6 +10,7 @@ margin-bottom: 12px;
 
 `;
 export const Wrapper = styled.div`
+min-width: 409px;
 padding-left: 32px;
 padding-right: 73px;
 padding-top:8px;
