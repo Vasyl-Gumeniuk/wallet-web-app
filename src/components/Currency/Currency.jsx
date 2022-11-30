@@ -38,20 +38,20 @@ export default function Currency() {
           if(data!==undefined) {
           localStorage.setItem('currency', JSON.stringify(data))}
         })
-        console.log("GG")
+      
         
       }
       if(localStorage.getItem('currency')!== null &&time + 3600000 < today) {
         currencyArray().then(data=>localStorage.setItem('currency', JSON.stringify(data)))
         localStorage.setItem('time', JSON.stringify(today));
-        console.log("KK")
+        
        
         }
       if(localStorage.getItem('currency')!== null&& time + 3600000 >= today) {
         let currency = JSON.parse(localStorage.getItem('currency'));
         localStorage.setItem('time', JSON.stringify(today));
         SetCurrency(currency)
-        console.log("VV")
+        
        
         }
         return () => {

@@ -10,8 +10,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   margin: 0;
   height: 100vh;
-  overflow-y: auto;
-  position: relative;
+ 
   
 `;
 export const Main = styled.div`
