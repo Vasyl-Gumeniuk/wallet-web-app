@@ -69,3 +69,10 @@ export const Exit = styled.p`
     margin-left: 8px;
   }
 `;
+
+export const ExitButton = styled.button`
+  display: flex;
+  background-color: inherit;
+  border: none;
+  color: inherit;
+`;
