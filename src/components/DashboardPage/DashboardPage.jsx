@@ -15,14 +15,14 @@ const FROM = {
 export default function DashboardPage({ currentUser, from }) {
   return (
     <Wrapper>
-      <Line></Line>
-      <Container>
+     <Container>
         <Main>
           <NavContainer>
             <NavBar />
             <Balance currentUser={currentUser} />
             <Currency />
-          </NavContainer>
+            </NavContainer>
+            <Line></Line>
           <ChatContainer>
             {from === FROM.home ? <Table /> : <Chart />}
           </ChatContainer>

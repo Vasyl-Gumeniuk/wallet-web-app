@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const ContainerBlock = styled.div`
   width: 100%;
+  height: 100%;
   margin: ${p => p.theme.space[0]}px ${p => p.theme.space[9]};
   padding-left: ${p => p.theme.space[3]}px;
   padding-right: ${p => p.theme.space[3]}px;

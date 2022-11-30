@@ -18,10 +18,13 @@ export const Main = styled.div`
   display: flex;
   justify-content: center;
   z-index: 9999;
-  padding-top: 40px;
-  padding-bottom: 47px;
+  width: 100%;
+  height: 100%;
+ 
 `;
 export const NavContainer = styled.div`
+  padding-top: 40px;
+  padding-bottom: 47px;
   @media screen and (min-width: 1024px) {
    padding-right: 69px;
    
@@ -32,15 +35,16 @@ export const NavContainer = styled.div`
    }
 `;
 export const ChatContainer = styled.div`
+  padding-top: 40px;
+  padding-bottom: 47px;
   margin-left: 69px;
   
 `;
 export const Line = styled.div`
   background: url(${line}) ;
   width: 8px;
-  height: 100%;
-  position: fixed;
-  left: 40.5%;
   background-repeat: repeat-y;
-  
+  background-size: 100% 100%;
+
+    
 `;
