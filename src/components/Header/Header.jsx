@@ -12,7 +12,9 @@ import {
   Exit,
   ExitButton,
 } from './Header.styled';
-export default function Header() {
+
+export default function Header({ currentUser }) {
+  const name = currentUser?.data.name;
   const [showModal, setShowModal] = useState(false);
 
   const onExitButtonClick = () => {

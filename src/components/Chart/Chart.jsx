@@ -2,6 +2,12 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import React, { useState } from 'react';
 import Container from '../Container/Container';
+import { months, allCategories } from './ChartData';
+import {
+  useGetTransactionsQuery,
+  useGetTransactionsStatisticsQuery,
+} from '../../redux/transactions/transactionApi';
+
 import {
   ChartContainer,
   Title,
@@ -43,21 +49,6 @@ const chartData = [
   { color: 'rgba(0, 173, 132, 1.0)', label: 'Other expenses', data: 20, id: 9 },
 ];
 
-const months = [
-  { month: 'Січень', id: 1 },
-  { month: 'Лютий', id: 2 },
-  { month: 'Березень', id: 3 },
-  { month: 'Квітень', id: 4 },
-  { month: 'Травень', id: 5 },
-  { month: 'Червень', id: 6 },
-  { month: 'Липень', id: 7 },
-  { month: 'Серпень', id: 8 },
-  { month: 'Вересень', id: 9 },
-  { month: 'Жовтень', id: 10 },
-  { month: 'Листопад', id: 11 },
-  { month: 'Грудень', id: 12 },
-];
-
 const currentYear = 2022;
 const registerYear = 2015;
 
@@ -91,77 +82,85 @@ const chartOptions = {
       position: 'bottom',
     },
   },
-  label: {
-    display: true,
-    text: '100',
-  },
-  cutout: 70,
+  cutout: '70%',
 };
 
 function Chart() {
-  const [value, setValue] = useState('');
+  const [year, setYear] = useState('');
+  const [month, setMonth] = useState('');
 
-  function changeSelect(e) {
-    setValue(e.target.value);
-    console.log(e.target.value);
-  }
+  const changeSelect = e => {
+    const { name, value } = e.target;
 
+    switch (name) {
+      case 'year':
+        setYear(value);
+        break;
+      case 'month':
+        setMonth(value);
+        break;
+      default:
+        return;
+    }
+  };
   const years = makeYearArray();
 
   return (
     <Container>
-    <ChartContainer>
-      <DiagramThumb>
-        <FirstPart>
-          <Title>Statistics</Title>
-          <Diagram>
-            <Sum>2000.0</Sum>
-            <Doughnut data={data} options={chartOptions} />
-          </Diagram>
-        </FirstPart>
-        <SecondPart>
-          <Select value={value} onChange={changeSelect}>
-            <option disabled={true} value="">
-              Вибери рік
-            </option>
-            {years.map(({ year, id }) => (
-              <option key={id}>{year}</option>
-            ))}
-          </Select>
-          <Select value={value} onChange={changeSelect}>
-            <option disabled={true} value="">
-              Вибери місяць
-            </option>
-            {months.map(({ month, id }) => (
-              <option key={id}>{month}</option>
-            ))}
-          </Select>
-          <Table>
-            <TableTop>
-              <p>Category</p>
-              <p>Sum</p>
-            </TableTop>
-            {chartData.map(({ id, color, label, data }) => (
-              <TableItem key={id}>
-                <TableItemThumb>
-                  <TableSquare style={{ background: `${color}` }}></TableSquare>
-                  <span>{label}</span>
-                </TableItemThumb>
-                <span>{data}</span>
-              </TableItem>
-            ))}
-            <TableBottom>
-              <p>Expenses:</p>
-              <p style={{ color: '#FF6596' }}>100.0</p>
-            </TableBottom>
-            <TableBottom>
-              <p>Income:</p>
-              <p style={{ color: '#24CCA7' }}>200.0</p>
-            </TableBottom>
-          </Table>
-        </SecondPart>
-      </DiagramThumb>
-    </ChartContainer>
+      <ChartContainer>
+        <DiagramThumb>
+          <FirstPart>
+            <Title>Statistics</Title>
+            <Diagram>
+              <Sum>2000.0</Sum>
+              <Doughnut data={data} options={chartOptions} />
+            </Diagram>
+          </FirstPart>
+          <SecondPart>
+            <Select value={year} name="year" onChange={changeSelect}>
+              <option disabled={true} value="">
+                Вибери рік
+              </option>
+              {years.map(({ year, id }) => (
+                <option key={id}>{year}</option>
+              ))}
+            </Select>
+            <Select value={month} name="month" onChange={changeSelect}>
+              <option disabled={true} value="">
+                Вибери місяць
+              </option>
+              {months.map(({ month, id }) => (
+                <option key={id}>{month}</option>
+              ))}
+            </Select>
+            <Table>
+              <TableTop>
+                <p>Category</p>
+                <p>Sum</p>
+              </TableTop>
+              {chartData.map(({ id, color, label, data }) => (
+                <TableItem key={id}>
+                  <TableItemThumb>
+                    <TableSquare
+                      style={{ background: `${color}` }}
+                    ></TableSquare>
+                    <span>{label}</span>
+                  </TableItemThumb>
+                  <span>{data}</span>
+                </TableItem>
+              ))}
+              <TableBottom>
+                <p>Expenses:</p>
+                <p style={{ color: '#FF6596' }}>100.0</p>
+              </TableBottom>
+              <TableBottom>
+                <p>Income:</p>
+                <p style={{ color: '#24CCA7' }}>200.0</p>
+              </TableBottom>
+            </Table>
+          </SecondPart>
+        </DiagramThumb>
+      </ChartContainer>
     </Container>
   );
 }
