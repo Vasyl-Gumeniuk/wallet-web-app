@@ -4,7 +4,7 @@ import Chart from '../Chart';
 import Currency from '../Currency';
 import Balance from '../Balance';
 import ButtonAddTransactions from '../ButtonAddTransactions/ButtonAddTransactions';
-import { Wrapper, Main, NavContainer, ChatContainer } from './Dashboard.styled';
+import { Wrapper, Main, NavContainer, ChatContainer, Line } from './Dashboard.styled';
 import Table from '../Table/Table';
 
 const FROM = {
@@ -15,13 +15,14 @@ const FROM = {
 export default function DashboardPage({ currentUser, from }) {
   return (
     <Wrapper>
-      <Container>
+     <Container>
         <Main>
           <NavContainer>
             <NavBar />
             <Balance currentUser={currentUser} />
             <Currency />
-          </NavContainer>
+            </NavContainer>
+            <Line></Line>
           <ChatContainer>
             {from === FROM.home ? <Table /> : <Chart />}
           </ChatContainer>
