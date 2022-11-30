@@ -37,7 +37,6 @@ export const UserBlock = styled.div`
   justify-content: center;
   align-items: center;
   color: rgba(189, 189, 189, 1);
-
   font-family: 'Circe', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -68,4 +67,11 @@ export const Exit = styled.p`
     display: none;
     margin-left: 8px;
   }
+`;
+
+export const ExitButton = styled.button`
+  display: flex;
+  background-color: inherit;
+  border: none;
+  color: inherit;
 `;

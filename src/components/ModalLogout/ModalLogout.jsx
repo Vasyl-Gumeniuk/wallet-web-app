@@ -1,8 +1,12 @@
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 import { Formik } from 'formik';
 import { Form } from 'formik';
 import { Box } from '../../Box';
 import { ContainerBlock } from '../Container/Container.styled';
 import { ButtonElement } from '../../pages/LoginPage/LoginForm/LoginForm.styled';
+import { logOutUser } from '../../redux/auth/authSlice';
+import { useLogOutQuery } from '../../redux/auth/authApi';
 import {
   Title,
   CenteredDiv,
@@ -10,7 +14,22 @@ import {
   CancelButton,
 } from './ModalLogout.styled';
 
-export const ModalLogout = () => {
+export const ModalLogout = ({ closeModal }) => {
+  const [buttonClicked, setButtonClicked] = useState(false);
+  const { isSucess } = useLogOutQuery('', { skip: !buttonClicked });
+  const dispatch = useDispatch();
+  const handleLogOut = async () => {
+    try {
+      setButtonClicked(true);
+      if (isSucess) {
+        await dispatch(logOutUser());
+        closeModal();
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <CenteredDiv>
       <Box pt={32} pb={32}>
@@ -22,10 +41,12 @@ export const ModalLogout = () => {
                 <Form>
                   <ul>
                     <ButtonElement>
-                      <LogoutButton type="submit">Log out</LogoutButton>
+                      <LogoutButton onClick={handleLogOut}>
+                        Log out
+                      </LogoutButton>
                     </ButtonElement>
                     <ButtonElement>
-                      <CancelButton>Cancel</CancelButton>
+                      <CancelButton onClick={closeModal}>Cancel</CancelButton>
                     </ButtonElement>
                   </ul>
                 </Form>
