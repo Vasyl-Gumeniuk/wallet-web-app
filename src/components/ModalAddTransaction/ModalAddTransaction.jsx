@@ -44,7 +44,7 @@ const ModalAddTransaction = ({ onClose, currentUser }) => {
       </Div>
       <Container>
         <TitleModal>Add transaction</TitleModal>
-        <Form currentUser={currentUser} />
+        <Form onClose={onClose} currentUser={currentUser} />
         <ButtonCancel type="button" onClick={onClose}>
           CANCEL
         </ButtonCancel>

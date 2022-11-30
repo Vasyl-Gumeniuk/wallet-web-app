@@ -5,12 +5,8 @@ export const authApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://back-voit-wallet.herokuapp.com/api',
 
-    prepareHeaders: (headers, { getState }) => {
-      const test = getState();
-      console.log('test', test);
-      const token = getState().authSlice.token;
-      console.log('token', token);
-
+    prepareHeaders: async (headers, { getState }) => {
+      const token = await getState().authSlice.token;
       if (token) {
         headers.set('authorization', `Bearer ${token}`);
       }

@@ -15,13 +15,13 @@ import {
 } from './ModalLogout.styled';
 
 export const ModalLogout = ({ closeModal }) => {
-  const [buttonClicked, setButtonClicked] = useState(false);
-  const { isSucess } = useLogOutQuery('', { skip: !buttonClicked });
+  const [skip, setSkip] = useState(true);
+  const { isSuccess } = useLogOutQuery('', { skip });
   const dispatch = useDispatch();
   const handleLogOut = async () => {
+    setSkip(false);
     try {
-      setButtonClicked(true);
-      if (isSucess) {
+      if (isSuccess) {
         await dispatch(logOutUser());
         closeModal();
       }
