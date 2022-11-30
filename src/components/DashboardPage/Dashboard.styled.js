@@ -41,10 +41,18 @@ export const ChatContainer = styled.div`
   
 `;
 export const Line = styled.div`
+  display: none;
   background: url(${line}) ;
   width: 8px;
   background-repeat: repeat-y;
   background-size: 100% 100%;
-
+  @media screen and (min-width: 1024px) {
+    display: block;
+    
+   }
+   @media screen and (min-width: 2560px) {
+    display: block;
+     
+    }
     
 `;
