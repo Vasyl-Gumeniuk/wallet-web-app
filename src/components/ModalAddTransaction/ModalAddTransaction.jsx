@@ -12,7 +12,7 @@ import { useEffect } from 'react';
 
 import Form from './Form/Form';
 
-const ModalAddTransaction = ({ onClose }) => {
+const ModalAddTransaction = ({ onClose, currentUser }) => {
   useEffect(() => {
     const closeModal = e => {
       if (e.code === 'Escape') {
@@ -44,7 +44,7 @@ const ModalAddTransaction = ({ onClose }) => {
       </Div>
       <Container>
         <TitleModal>Add transaction</TitleModal>
-        <Form />
+        <Form currentUser={currentUser} />
         <ButtonCancel type="button" onClick={onClose}>
           CANCEL
         </ButtonCancel>

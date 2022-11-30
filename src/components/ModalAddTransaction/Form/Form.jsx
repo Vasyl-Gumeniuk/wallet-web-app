@@ -18,17 +18,15 @@ import {
 } from '../Form/Form.styled';
 import RadioButton from '../RadioButton/RadioButton';
 
-const Form = () => {
+const Form = ({ currentUser }) => {
   const [type, setType] = useState('income');
   const [sum, setSum] = useState('0.00');
   const [date, setDate] = useState(new Date());
   const [comment, setComment] = useState('');
   const [category, setCategory] = useState('');
-  const { data: transaction } = useGetTransactionsQuery();
   const [addTransaction] = useAddTransactionMutation();
-  const categories = transaction
-    ? transaction.data.map(category => category.category)
-    : [];
+  const categories = currentUser?.data.options;
+  console.log(categories);
   const options = categories.map(category => ({
     value: category,
     label: category,
@@ -46,11 +44,15 @@ const Form = () => {
         return;
     }
   };
+  const getSelectDate = () => {
+    return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
+  };
+  const selectDate = getSelectDate();
   const transactionState = {
     type,
     category,
     sum,
-    date,
+    date: selectDate,
     comment,
   };
   const onAddTransaction = async e => {
