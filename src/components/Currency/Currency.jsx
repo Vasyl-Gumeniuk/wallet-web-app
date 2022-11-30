@@ -12,7 +12,6 @@ import {CellBody} from './Currency.styled'
 import {CellMiddleBody} from './Currency.styled'
 import {CellLastBody} from './Currency.styled'
 import {CellMiddleBodyLast, Main} from './Currency.styled'
-import Container from "../Container";
 export default function Currency() {
      const [currency, SetCurrency] = useState([]);
      useEffect(() =>{
@@ -22,23 +21,38 @@ export default function Currency() {
         let response = await fetch(
             'https://api.monobank.ua/bank/currency'
           );
-      if (response.status === 200) {
+        if (response.status === 200) {
             let json = await response.json();
+            if(json !== "Too many requests") {
             localStorage.setItem('time', JSON.stringify(today));
             SetCurrency(filterCurrency(json))
             return filterCurrency(json)
+            }
         }
+        if (response.status === 429) {
+             console.log(response)
+      }
        }
       if(localStorage.getItem('currency')=== null) {
-        currencyArray().then(data=>localStorage.setItem('currency', JSON.stringify(data)))
+        currencyArray().then(data=> {
+          if(data!==undefined) {
+          localStorage.setItem('currency', JSON.stringify(data))}
+        })
+        console.log("GG")
         
       }
       if(localStorage.getItem('currency')!== null &&time + 3600000 < today) {
-        currencyArray()
+        currencyArray().then(data=>localStorage.setItem('currency', JSON.stringify(data)))
+        localStorage.setItem('time', JSON.stringify(today));
+        console.log("KK")
+       
         }
       if(localStorage.getItem('currency')!== null&& time + 3600000 >= today) {
         let currency = JSON.parse(localStorage.getItem('currency'));
+        localStorage.setItem('time', JSON.stringify(today));
         SetCurrency(currency)
+        console.log("VV")
+       
         }
         return () => {
 
@@ -88,7 +102,6 @@ export default function Currency() {
         )
       }
     return (
-      <Container>
-      <Main>{dataforRendering}</Main></Container>
+      <Main>{dataforRendering}</Main>
  );
 };
