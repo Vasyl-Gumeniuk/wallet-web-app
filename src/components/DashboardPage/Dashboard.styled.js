@@ -18,14 +18,13 @@ export const Main = styled.div`
   z-index: 9999;
 `;
 export const NavContainer = styled.div`
-  border-right: 1px solid #e7e5f2;
   padding-top: 40px;
   padding-bottom: 47px;
   @media screen and (min-width: 1024px) {
    padding-right: 69px;
   }
   @media screen and (min-width: 2560px) {
-    padding-right: 69px;
+    margin-right: 69px;
    }
 `;
 export const ChatContainer = styled.div`

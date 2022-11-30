@@ -1,5 +1,4 @@
 import { ReactComponent as ReactSprite } from '../images/icons/sprite-all-icons.svg';
-import Container from '../components/Container/Container';
 import { List, Item, Icon, LinkStyled } from './NavBar.styled';
 import { Mobile, Default } from '../services/mediaQuery';
 
