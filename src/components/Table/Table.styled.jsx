@@ -1,8 +1,10 @@
 import styled from 'styled-components';
+import { theme } from '../../theme.js';
 
 export const TableContainer = styled.div`
   display: inline-block;
   width: 704px;
+  height: 200px;
 
   text-align: center;
 `;
@@ -14,7 +16,6 @@ export const TableHead = styled.div`
   width: 100%;
   height: 58px;
   border-radius: 30px;
-  border: solid 1px gray;
 
   padding-left: 20px;
   padding-right: 20px;
@@ -22,6 +23,7 @@ export const TableHead = styled.div`
   font-weight: 700;
   font-size: 18px;
   line-height: 27px;
+  background: ${theme.colors.whiteTextColor};
 `;
 
 export const TableHeadItem = styled.div`

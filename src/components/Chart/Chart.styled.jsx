@@ -89,6 +89,7 @@ export const Select = styled.select`
   background-repeat: no-repeat;
   background-position: right 1rem center;
   background-size: 1em;
+  overflow-y: auto;
 `;
 
 export const Table = styled.ul`
@@ -111,7 +112,7 @@ export const TableTop = styled.li`
   padding-right: 20px;
   height: 58px;
   border-radius: 30px;
-  background-color: lightgray;
+  background-color: white;
 `;
 
 export const TableItem = styled.li`

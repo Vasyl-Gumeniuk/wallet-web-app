@@ -22,7 +22,7 @@ export const transactionApi = createApi({
       providesTags: ['Transaction'],
     }),
     getTransactionsStatistics: builder.query({
-      query: (month, year) =>
+      query: (month = 9, year = 2022) =>
         `/transactions/statistics?month=${month}&year=${year}`,
       providesTags: ['Transaction'],
     }),
