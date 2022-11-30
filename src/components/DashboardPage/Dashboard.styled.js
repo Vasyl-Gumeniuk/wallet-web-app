@@ -24,6 +24,7 @@ export const Main = styled.div`
 export const NavContainer = styled.div`
   padding-top: 40px;
   padding-bottom: 47px;
+  height: scrollHeight;
   @media screen and (min-width: 1024px) {
    padding-right: 69px;
    
