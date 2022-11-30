@@ -27,28 +27,6 @@ import {
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const chartData = [
-  {
-    color: 'rgba(254, 208, 87, 1.0)',
-    label: 'Basic expenses',
-    data: 12,
-    id: 1,
-  },
-  { color: 'rgba(255, 216, 208, 1.0)', label: 'Products', data: 19, id: 2 },
-  { color: 'rgba(253, 148, 152, 1.0)', label: 'Car', data: 3, id: 3 },
-  { color: 'rgba(197, 186, 255, 1.0)', label: 'Self care', data: 5, id: 4 },
-  { color: 'rgba(110, 120, 232, 1.0)', label: 'Child care', data: 2, id: 5 },
-  {
-    color: 'rgba(74, 86, 226, 1.0)',
-    label: 'Household products',
-    data: 3,
-    id: 6,
-  },
-  { color: 'rgba(129, 225, 255, 1.0)', label: 'Education', data: 10, id: 7 },
-  { color: 'rgba(36, 204, 167, 1.0)', label: 'Leisure', data: 15, id: 8 },
-  { color: 'rgba(0, 173, 132, 1.0)', label: 'Other expenses', data: 20, id: 9 },
-];
-
 const currentYear = 2022;
 const registerYear = 2015;
 
@@ -56,24 +34,28 @@ function makeYearArray() {
   let yearArray = [];
   let n = 0;
   for (let y = registerYear; y <= currentYear; y++) {
-    const obj = { year: y, id: n++ };
+    const obj = { year: y.toString(), id: n++ };
     yearArray.push(obj);
   }
   return yearArray;
 }
 
-export const data = {
-  labels: chartData.map(item => item.label),
-  datasets: [
-    {
-      label: '# of Votes',
-      data: chartData.map(item => item.data),
-      backgroundColor: chartData.map(item => item.color),
-      borderWidth: 0,
-    },
-  ],
-  text: '3000',
-};
+function findCategory(data) {
+  var usedCategories = [];
+  for (const item of data) {
+    const all = allCategories.find(cat => cat.category === item.category);
+    all.data = item.totalex;
+    usedCategories.push(all);
+  }
+  return usedCategories;
+}
+
+function findMonthNumber(month) {
+  if (month !== '') {
+    const monthNumber = months.find(item => item.month === month);
+    return monthNumber.id;
+  } else return '';
+}
 
 const chartOptions = {
   plugins: {
@@ -89,6 +71,12 @@ function Chart() {
   const [year, setYear] = useState('');
   const [month, setMonth] = useState('');
 
+  var currBalance = 0.0;
+  var income = 0.0;
+  var expense = 0.0;
+  var res = [{ id: 1, color: 'white', category: 'Other', data: 0.0 }];
+  var monthToShow = '';
+
   const changeSelect = e => {
     const { name, value } = e.target;
 
@@ -98,12 +86,37 @@ function Chart() {
         break;
       case 'month':
         setMonth(value);
+
         break;
       default:
         return;
     }
   };
+  monthToShow = findMonthNumber(month);
+
+  const statData = useGetTransactionsStatisticsQuery(monthToShow, year);
+
+  if (statData.data) {
+    currBalance = statData.data.currBalance;
+    income = statData.data.totalIncome;
+    expense = statData.data.totalExpense;
+    const stats = statData.data.stats;
+    res = findCategory(stats);
+  }
+
   const years = makeYearArray();
+
+  const data = {
+    labels: res.map(item => item.category),
+    datasets: [
+      {
+        label: '',
+        data: res.map(item => item.data),
+        backgroundColor: res.map(item => item.color),
+        borderWidth: 0,
+      },
+    ],
+  };
 
   return (
     <Container>
@@ -112,14 +125,14 @@ function Chart() {
           <FirstPart>
             <Title>Statistics</Title>
             <Diagram>
-              <Sum>2000.0</Sum>
+              <Sum>&#8372; {currBalance} </Sum>
               <Doughnut data={data} options={chartOptions} />
             </Diagram>
           </FirstPart>
           <SecondPart>
             <Select value={year} name="year" onChange={changeSelect}>
               <option disabled={true} value="">
-                Вибери рік
+                Виберите рік
               </option>
               {years.map(({ year, id }) => (
                 <option key={id}>{year}</option>
@@ -127,7 +140,7 @@ function Chart() {
             </Select>
             <Select value={month} name="month" onChange={changeSelect}>
               <option disabled={true} value="">
-                Вибери місяць
+                Виберите місяць
               </option>
               {months.map(({ month, id }) => (
                 <option key={id}>{month}</option>
@@ -138,24 +151,24 @@ function Chart() {
                 <p>Category</p>
                 <p>Sum</p>
               </TableTop>
-              {chartData.map(({ id, color, label, data }) => (
+              {res.map(({ id, color, category, data }) => (
                 <TableItem key={id}>
                   <TableItemThumb>
                     <TableSquare
                       style={{ background: `${color}` }}
                     ></TableSquare>
-                    <span>{label}</span>
+                    <span>{category}</span>
                   </TableItemThumb>
                   <span>{data}</span>
                 </TableItem>
               ))}
               <TableBottom>
                 <p>Expenses:</p>
-                <p style={{ color: '#FF6596' }}>100.0</p>
+                <p style={{ color: '#FF6596' }}>{expense}</p>
               </TableBottom>
               <TableBottom>
                 <p>Income:</p>
-                <p style={{ color: '#24CCA7' }}>200.0</p>
+                <p style={{ color: '#24CCA7' }}>{income}</p>
               </TableBottom>
             </Table>
           </SecondPart>
