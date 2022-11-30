@@ -10,7 +10,7 @@ margin-bottom: 12px;
 
 `;
 export const Wrapper = styled.div`
-min-width: 409px; 
+min-width: 287px; 
 padding-left: 32px;
 padding-right: 73px;
 padding-top:8px;
@@ -22,16 +22,20 @@ margin-top:28px;
 @media screen and (min-width: 768px) {
   padding-left: 40px;
   padding-right: 121px;
+  min-width: 343px; 
 }
 @media screen and (min-width: 1024px) {
   padding-left: 40px;
   padding-right: 180px;
+  min-width: 409px; 
+
   
 }
 
 @media screen and (min-width: 2560px) {
   padding-left: 40px;
   padding-right: 180px;
+  min-width: 409px; 
   
 }
 `;
