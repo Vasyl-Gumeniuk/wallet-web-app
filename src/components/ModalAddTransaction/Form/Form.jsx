@@ -47,7 +47,12 @@ const Form = ({ currentUser, onClose }) => {
     }
   };
   const getSelectDate = () => {
-    return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
+    const dateFormat = `${date.getDate().toString().padStart(2, '0')}.${(
+      date.getMonth() + 1
+    )
+      .toString()
+      .padStart(2, '0')}.${date.getFullYear()}`;
+    return dateFormat;
   };
   const selectDate = getSelectDate();
   const transactionState = {
