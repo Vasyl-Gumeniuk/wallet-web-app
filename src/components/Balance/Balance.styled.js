@@ -12,7 +12,6 @@ margin-bottom: 12px;
 export const Wrapper = styled.div`
 min-width: 287px; 
 padding-left: 32px;
-padding-right: 73px;
 padding-top:8px;
 padding-bottom:12px;
 background: #FFFFFF;
@@ -27,7 +26,6 @@ margin-top:15px;
 }
 @media screen and (min-width: 1024px) {
   padding-left: 40px;
-  padding-right: 180px;
   min-width: 409px; 
 
   
@@ -35,7 +33,6 @@ margin-top:15px;
 
 @media screen and (min-width: 2560px) {
   padding-left: 40px;
-  padding-right: 180px;
   min-width: 409px; 
   
 }
