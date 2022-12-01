@@ -33,7 +33,7 @@ export default function Header({ currentUser }) {
           <>
             <Name>{name}</Name>
             <ExitButton onClick={onExitButtonClick}>
-              <IconExit width="18" height="18" aria-label="wallet" onHi>
+              <IconExit width="18" height="18" aria-label="wallet">
                 <use href={`${sprite}#icon-exit`}></use>
               </IconExit>
               <Exit>Exit</Exit>

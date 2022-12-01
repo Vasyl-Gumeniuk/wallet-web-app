@@ -1,5 +1,6 @@
 import { Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import CircleLoader from 'react-spinners/CircleLoader';
 import {
   AuthButton,
@@ -18,9 +19,12 @@ const LoginForm = () => {
 
   const handleSubmit = async (email, password) => {
     const user = { email, password };
-    const { data } = await login(user);
+    const data = await login(user);
 
-    await dispatch(logInUser(data));
+    if (data.error) {
+      Notify.failure(data.error.data.message);
+    }
+    await dispatch(logInUser(data.data));
   };
 
   return (
