@@ -1,5 +1,6 @@
 import { Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
+import CircleLoader from 'react-spinners/CircleLoader';
 import {
   AuthButton,
   RedirectFormButton,
@@ -12,14 +13,7 @@ import { LoginSchema } from '../../../services/formValidationService';
 import { ButtonElement, RedirectButtonLink } from './LoginForm.styled';
 
 const LoginForm = () => {
-  const [
-    login,
-    // {
-    //   isError: isLoginError,
-    //   isLoading: isLoginLoading,
-    //   isSuccess: isloginSuccess,
-    // },
-  ] = useLogInMutation();
+  const [login] = useLogInMutation();
   const dispatch = useDispatch();
 
   const handleSubmit = async (email, password) => {
@@ -58,11 +52,19 @@ const LoginForm = () => {
             />
             <ul>
               <ButtonElement>
-                <AuthButton type="submit">Log in</AuthButton>
+                <AuthButton type="submit" disabled={isSubmitting}>
+                  {isSubmitting ? (
+                    <CircleLoader color="#fff" size={30} />
+                  ) : (
+                    'Log in'
+                  )}
+                </AuthButton>
               </ButtonElement>
               <ButtonElement>
                 <RedirectButtonLink to="/registration">
-                  <RedirectFormButton>Register</RedirectFormButton>
+                  <RedirectFormButton disabled={isSubmitting}>
+                    Register
+                  </RedirectFormButton>
                 </RedirectButtonLink>
               </ButtonElement>
             </ul>
