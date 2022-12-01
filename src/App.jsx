@@ -19,8 +19,6 @@ export const App = () => {
   const { data: currentUser } = useFetchCurrentUserQuery('', {
     skip,
   });
-  console.log(currentUser);
-  console.log(token);
   const dispatch = useDispatch();
   useEffect(() => {
     if (token === null) {

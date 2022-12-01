@@ -22,7 +22,7 @@ export const ModalLogout = ({ closeModal }) => {
     setSkip(false);
     try {
       if (isSuccess) {
-        await dispatch(logOutUser());
+        dispatch(logOutUser());
         closeModal();
       }
     } catch (error) {
