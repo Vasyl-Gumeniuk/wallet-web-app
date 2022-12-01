@@ -30,13 +30,17 @@ export default function Header({ currentUser }) {
       <Wrapper>
         <Logo type="header"></Logo>
         <UserBlock>
-          <Name>{name}</Name>
-          <ExitButton onClick={onExitButtonClick}>
-            <IconExit width="18" height="18" aria-label="wallet" onHi>
-              <use href={`${sprite}#icon-exit`}></use>
-            </IconExit>
-            <Exit>Exit</Exit>
-          </ExitButton>
+          {currentUser && (
+            <>
+              <Name>{name}</Name>
+              <ExitButton onClick={onExitButtonClick}>
+                <IconExit width="18" height="18" aria-label="wallet" onHi>
+                  <use href={`${sprite}#icon-exit`}></use>
+                </IconExit>
+                <Exit>Exit</Exit>
+              </ExitButton>
+            </>
+          )}
         </UserBlock>
       </Wrapper>
       {showModal && (
