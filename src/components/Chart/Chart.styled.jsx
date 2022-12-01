@@ -1,15 +1,21 @@
 import styled from 'styled-components';
 
 export const ChartContainer = styled.div`
-  padding-left: 20px;
-  padding-right: 20px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 280px;
+  margin-right: 0;
 
-  text-align: center;
+  @media screen and (min-width: 768px) {
+    width: 336px;
+    margin-right: 32px;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 288px;
+    margin-right: 32px;
+  }
 `;
 
 export const Title = styled.h1`
+  display: block;
   font-style: normal;
   font-weight: 400;
   font-size: 30px;
@@ -35,8 +41,8 @@ export const FirstPart = styled.div`
     width: 336px;
     margin-right: 32px;
   }
-  @media screen and (min-width: 1200px) {
-    width: 288px;
+  @media screen and (min-width: 1024px) {
+    width: 200px;
     margin-right: 32px;
   }
 `;
@@ -48,8 +54,8 @@ export const SecondPart = styled.div`
     width: 336px;
   }
 
-  @media screen and (min-width: 1200px) {
-    width: 288px;
+  @media screen and (min-width: 1024px) {
+    width: 260px;
   }
 `;
 
@@ -81,6 +87,11 @@ export const Select = styled.select`
   border-radius: 30px;
   border: solid 1px gray;
   margin-bottom: 20px;
+
+  &:not(:last-child) {
+    margin-right: 15px;
+  }
+
   padding-left: 20px;
   padding-right: 20px;
   outline: 0px;
@@ -89,12 +100,29 @@ export const Select = styled.select`
   background-repeat: no-repeat;
   background-position: right 1rem center;
   background-size: 1em;
+  background-color: transparent;
   overflow-y: auto;
+
+  font-family: 'Circe';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
 `;
 
 export const Table = styled.ul`
   display: inline-block;
   width: 100%;
+`;
+
+export const SelectContainer = styled.div`
+   {
+    display: inline-flex;
+    flex-direction: column;
+    width: 100%;
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+    }
+  }
 `;
 
 export const TableTop = styled.li`
@@ -103,6 +131,7 @@ export const TableTop = styled.li`
   align-items: center;
   width: 100%;
 
+  font-family: 'Circe';
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
@@ -118,6 +147,7 @@ export const TableTop = styled.li`
 export const TableItem = styled.li`
   display: inline-flex;
   justify-content: space-between;
+
   align-items: center;
   width: 100%;
   height: 58px;
@@ -126,6 +156,7 @@ export const TableItem = styled.li`
   border-bottom: solid 1px lightgrey;
   text-align: left;
 
+  font-family: 'Circe';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -150,7 +181,9 @@ export const TableBottom = styled.li`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  height: 40px;
 
+  font-family: 'Circe';
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
@@ -158,5 +191,10 @@ export const TableBottom = styled.li`
 
   padding-left: 20px;
   padding-right: 20px;
-  height: 40px;
+`;
+
+export const BottomContainer = styled.div`
+   {
+    margin-top: 15px;
+  }
 `;

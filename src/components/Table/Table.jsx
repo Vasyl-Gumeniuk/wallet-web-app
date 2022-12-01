@@ -11,7 +11,6 @@ const colors = { income: '#24CCA7', expenses: '#FF6596' };
 function Table() {
   return (
     <TableContainer>
-      Table
       <TableHead>
         <TableHeadItem style={{ width: '15%', textAlign: 'left' }}>
           Date
