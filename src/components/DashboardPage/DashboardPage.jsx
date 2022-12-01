@@ -14,14 +14,11 @@ const FROM = {
 };
 
 export default function DashboardPage({ currentUser, from }) {
-  const isDesktopBig = useMediaQuery({ query: '(min-width: 2560px)' })
-  const isDesktopSmall = useMediaQuery({ query: '(min-width: 1280px)' })
-  const isTablet = useMediaQuery({ query: '(min-width: 768px)' })
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
   let location = useLocation().pathname;
   function getElementforNavigation() {
   let navBalance 
-  if(location === '/home'&& isMobile) {
+  if(location === '/home'&& isMobile===true) {
     navBalance = (
     <NavContainer>
     <NavbarBalance>
@@ -30,8 +27,9 @@ export default function DashboardPage({ currentUser, from }) {
     </NavbarBalance>
      </NavContainer>
     );
+    
   }
-  if(location === '/statistics'&& isMobile) {
+  if(location === '/statistics'&&isMobile===true) {
     navBalance = (
     <NavContainer>
     <NavbarBalance>
@@ -39,8 +37,9 @@ export default function DashboardPage({ currentUser, from }) {
     </NavbarBalance>
      </NavContainer>
     );
+   
   }
-  else {
+  if(isMobile!==true) {
       navBalance = (
           <NavContainer>
            <NavbarBalance>
@@ -50,8 +49,9 @@ export default function DashboardPage({ currentUser, from }) {
             <Currency />
             </NavContainer>
       )
+      
     }
-    return navBalance
+   return navBalance
   }
   
   return (
