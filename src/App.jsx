@@ -2,7 +2,7 @@ import Header from './components/Header/Header';
 import { GlobalStyle } from './GlobalStyle';
 import LoginPage from './pages/LoginPage';
 import RegistrationPage from './pages/RegistrationPage';
-import { Routes, Route, useLocation, useNavigate} from 'react-router-dom';
+import { Routes, Route, useLocation, useNavigate, Navigate} from 'react-router-dom';
 import { useEffect } from 'react';
 import Currency from './components/Currency/Currency';
 import { Mobile } from './services/mediaQuery';
@@ -86,6 +86,7 @@ export const App = () => {
             </PublicRouter>
           }
         ></Route>
+        <Route path="*" element={<Navigate to="/registration" />}/>
       </Routes>
       <GlobalStyle />
     </>
