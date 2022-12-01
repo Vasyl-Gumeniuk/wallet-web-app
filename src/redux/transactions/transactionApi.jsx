@@ -4,9 +4,8 @@ export const transactionApi = createApi({
   reducerPath: 'transactionApi',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://back-voit-wallet.herokuapp.com/api',
-    prepareHeaders: (headers, { getState }) => {
-      const token = getState().authSlice.token;
-
+    prepareHeaders: async (headers, { getState }) => {
+      const token = await getState().authSlice.token;
       if (token) {
         headers.set('authorization', `Bearer ${token}`);
       }

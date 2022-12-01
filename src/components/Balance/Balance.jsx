@@ -4,6 +4,7 @@ import { Sum, Main } from './Balance.styled';
 export default function Balance({ currentUser }) {
   const currentBalance = currentUser?.data.curr_balance;
   return (
+ 
     <Main>
       <Wrapper>
         <BalanceLabel>Your balance</BalanceLabel>

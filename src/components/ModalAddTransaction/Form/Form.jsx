@@ -18,7 +18,7 @@ import {
 } from '../Form/Form.styled';
 import RadioButton from '../RadioButton/RadioButton';
 
-const Form = ({ currentUser }) => {
+const Form = ({ currentUser, onClose }) => {
   const [type, setType] = useState('income');
   const [sum, setSum] = useState('0.00');
   const [date, setDate] = useState(new Date());
@@ -27,10 +27,12 @@ const Form = ({ currentUser }) => {
   const [addTransaction] = useAddTransactionMutation();
   const categories = currentUser?.data.options;
   console.log(categories);
-  const options = categories.map(category => ({
-    value: category,
-    label: category,
-  }));
+  const options =
+    categories &&
+    categories.map(category => ({
+      value: category,
+      label: category,
+    }));
   const handleChange = e => {
     const { name, value } = e.target;
     switch (name) {
@@ -61,6 +63,7 @@ const Form = ({ currentUser }) => {
     console.log(transactionState);
     try {
       await addTransaction(transactionState);
+      onClose();
     } catch (error) {
       console.log(error);
     }
