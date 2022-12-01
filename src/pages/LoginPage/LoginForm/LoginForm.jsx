@@ -1,5 +1,6 @@
 import { Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
+import CircleLoader from 'react-spinners/CircleLoader';
 import {
   AuthButton,
   RedirectFormButton,
@@ -10,7 +11,6 @@ import { useLogInMutation } from '../../../redux/auth/authApi';
 import { logInUser } from '../../../redux/auth/authSlice';
 import { LoginSchema } from '../../../services/formValidationService';
 import { ButtonElement, RedirectButtonLink } from './LoginForm.styled';
-import ButtonLoaderIcon from '../../../components/ButtonLoader';
 
 const LoginForm = () => {
   const [login] = useLogInMutation();
@@ -52,13 +52,19 @@ const LoginForm = () => {
             />
             <ul>
               <ButtonElement>
-                <AuthButton type="submit">
-                  {isSubmitting ? <ButtonLoaderIcon /> : 'Log in'}
+                <AuthButton type="submit" disabled={isSubmitting}>
+                  {isSubmitting ? (
+                    <CircleLoader color="#fff" size={30} />
+                  ) : (
+                    'Log in'
+                  )}
                 </AuthButton>
               </ButtonElement>
               <ButtonElement>
                 <RedirectButtonLink to="/registration">
-                  <RedirectFormButton>Register</RedirectFormButton>
+                  <RedirectFormButton disabled={isSubmitting}>
+                    Register
+                  </RedirectFormButton>
                 </RedirectButtonLink>
               </ButtonElement>
             </ul>
