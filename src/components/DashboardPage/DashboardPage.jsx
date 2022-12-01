@@ -51,7 +51,6 @@ export default function DashboardPage({ currentUser, from }) {
             </NavContainer>
       )
     }
-    console.log(location)
     return navBalance
   }
   
