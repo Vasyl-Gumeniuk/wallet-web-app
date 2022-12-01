@@ -2,14 +2,20 @@ import Header from './components/Header/Header';
 import { GlobalStyle } from './GlobalStyle';
 import LoginPage from './pages/LoginPage';
 import RegistrationPage from './pages/RegistrationPage';
-import { Routes, Route, useLocation, useNavigate, Navigate} from 'react-router-dom';
+import {
+  Routes,
+  Route,
+  useLocation,
+  useNavigate,
+  Navigate,
+} from 'react-router-dom';
 import { useEffect } from 'react';
 import Currency from './components/Currency/Currency';
 import { Mobile } from './services/mediaQuery';
 import { useDispatch, useSelector } from 'react-redux';
 import { useFetchCurrentUserQuery } from './redux/auth/authApi';
 import { fetchUser } from './redux/auth/authSlice';
-import {CurrencyBg} from './components/DashboardPage/Dashboard.styled';
+import { CurrencyBg } from './components/DashboardPage/Dashboard.styled';
 // import StatisticsPage from './pages/StatisticsPage';
 import Table from '../src/components/Table';
 import DashboardPage from './components/DashboardPage/DashboardPage';
@@ -21,11 +27,11 @@ export const App = () => {
   let navigate = useNavigate();
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
   let location = useLocation().pathname;
-  if(location === '/currency' && isMobile!== true) {
+  if (location === '/currency' && isMobile !== true) {
     navigate('/home');
   }
- 
- const token = useSelector(state => state.authSlice.token);
+
+  const token = useSelector(state => state.authSlice.token);
   const skip = token === null ? true : false;
   const { data: currentUser } = useFetchCurrentUserQuery('', {
     skip,
@@ -39,7 +45,7 @@ export const App = () => {
   }, [currentUser, dispatch, token]);
   return (
     <>
-      <Header currentUser={currentUser} />
+      {currentUser && <Header currentUser={currentUser} />}
       <Routes>
         <Route
           path="/home"
@@ -62,8 +68,8 @@ export const App = () => {
           element={
             <Mobile>
               <CurrencyBg>
-              <NavBar></NavBar>
-              <Currency></Currency>
+                <NavBar></NavBar>
+                <Currency></Currency>
               </CurrencyBg>
             </Mobile>
           }
@@ -85,7 +91,7 @@ export const App = () => {
             </PublicRouter>
           }
         ></Route>
-        <Route path="*" element={<Navigate to="/registration" />}/>
+        <Route path="*" element={<Navigate to="/registration" />} />
       </Routes>
       <GlobalStyle />
     </>
