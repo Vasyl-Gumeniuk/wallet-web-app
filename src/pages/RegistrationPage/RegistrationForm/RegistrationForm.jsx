@@ -1,5 +1,6 @@
 import { Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import CircleLoader from 'react-spinners/CircleLoader';
 import {
   AuthButton,
@@ -27,6 +28,7 @@ const RegistrationForm = () => {
     const { data } = await register(user);
 
     await dispatch(registerUser(data));
+    Notify.success('You are successfully registered. Now, please, log in');
   };
 
   return (
