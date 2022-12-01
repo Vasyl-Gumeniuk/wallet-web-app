@@ -5,7 +5,7 @@ import AuthPage from '../AuthPage/AuthPage';
 
 const RegistrationPage = () => {
   return (
-    <AuthPage>
+    <AuthPage registration={true}>
       <RegisterContainer>
         <Logo type="registration" />
         <RegistrationForm />
