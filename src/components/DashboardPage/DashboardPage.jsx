@@ -8,12 +8,14 @@ import { Wrapper, Main, NavContainer, ChatContainer, Line, NavbarBalance} from '
 import Table from '../Table/Table';
 import { useMediaQuery } from 'react-responsive';
 import { useLocation } from 'react-router-dom';
+import {useEffect, useState} from 'react';
 const FROM = {
   home: 'home',
   statistics: 'statistics',
 };
 
 export default function DashboardPage({ currentUser, from }) {
+  const [balance, setBalance] = useState(0);
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
   let location = useLocation().pathname;
   function getElementforNavigation() {
@@ -23,7 +25,7 @@ export default function DashboardPage({ currentUser, from }) {
     <NavContainer>
     <NavbarBalance>
      <NavBar />
-     <Balance currentUser={currentUser} />
+     <Balance balance={balance} />
     </NavbarBalance>
      </NavContainer>
     );
@@ -44,7 +46,7 @@ export default function DashboardPage({ currentUser, from }) {
           <NavContainer>
            <NavbarBalance>
             <NavBar />
-            <Balance currentUser={currentUser} />
+            <Balance balance={balance} />
             </NavbarBalance>
             <Currency />
             </NavContainer>
@@ -61,7 +63,7 @@ export default function DashboardPage({ currentUser, from }) {
           {getElementforNavigation()}
             <Line></Line>
           <ChatContainer>
-            {from === FROM.home ? <Table /> : <Chart />}
+            {from === FROM.home ? <Table /> : <Chart setBalance={setBalance}/>}
           </ChatContainer>
           <ButtonAddTransactions currentUser={currentUser} />
         </Main>

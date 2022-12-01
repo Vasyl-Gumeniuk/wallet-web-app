@@ -11,7 +11,7 @@ import {useEffect, useState} from 'react';
 import {CellBody} from './Currency.styled'
 import {CellMiddleBody} from './Currency.styled'
 import {CellLastBody} from './Currency.styled'
-import {CellMiddleBodyLast, Main} from './Currency.styled'
+import {CellMiddleBodyLast, Main, CellBodyFirst} from './Currency.styled'
 export default function Currency() {
      const [currency, SetCurrency] = useState([]);
      useEffect(() =>{
@@ -82,16 +82,16 @@ export default function Currency() {
         <Body>
         <Line>
         <CellBody>USD</CellBody>
-        <CellMiddleBody>{currency[0].rateBuy}</CellMiddleBody>
+        <CellMiddleBody>{currency[0].rateBuy.toFixed(2)}</CellMiddleBody>
         <CellBody>{currency[0].rateSell.toFixed(2)}</CellBody>
         </Line>
         <Line>
         <CellBody>EUR</CellBody>
-        <CellMiddleBody>{currency[1].rateBuy}</CellMiddleBody>
+        <CellMiddleBody>{currency[1].rateBuy.toFixed(2)}</CellMiddleBody>
         <CellBody>{currency[1].rateSell.toFixed(2)}</CellBody>
         </Line>
         <Line>
-        <Cell>GBP</Cell>
+        <CellBodyFirst>GBP</CellBodyFirst>
         <CellMiddleBodyLast>{currency[3].rateCross.toFixed(2)}</CellMiddleBodyLast>
         <CellLastBody>{currency[3].rateCross.toFixed(2)}</CellLastBody>
         </Line>

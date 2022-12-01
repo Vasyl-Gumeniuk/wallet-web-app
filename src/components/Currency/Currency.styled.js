@@ -55,10 +55,10 @@ export const Wrapper = styled.table`
    padding-left: 20px;
    padding-bottom: 12px; 
    font-family: 'Circe';
-   font-size: 16px;
+   font-size: 18px;
    line-height: 24px;
    border:none;
-   font-weight: 400;
+   font-weight: 700;
 
    
   @media screen and (min-width: 1024px) {
@@ -79,9 +79,9 @@ export const Wrapper = styled.table`
    padding-right: 20px;
    padding-bottom: 12px; 
    font-family: 'Circe';
-   font-size: 16px;
+   font-size: 18px;
    line-height: 24px;
-   font-weight: 400;
+   font-weight: 700;
    text-align: center;
 
    @media screen and (min-width: 1024px) {
@@ -141,9 +141,9 @@ export const Wrapper = styled.table`
   padding-right: 33px;
   padding-bottom: 12px; 
   font-family: 'Circe';
-  font-size: 16px;
+  font-size: 18px;
   line-height: 24px;
-  font-weight: 400;
+  font-weight: 700;
   @media screen and (min-width: 768px) {
     padding-left: 61px;
     padding-right: 61px;
@@ -248,3 +248,26 @@ export const Wrapper = styled.table`
       
      }
     `
+  export const CellBodyFirst = styled.td`
+   padding-top: 12px;
+   padding-left: 20px;
+   padding-bottom: 12px; 
+   font-family: 'Circe';
+   font-size: 16px;
+   line-height: 24px;
+   border:none;
+   font-weight: 400;
+
+   
+  @media screen and (min-width: 1024px) {
+    padding-left: 44px;
+  }
+
+  @media screen and (min-width: 2560px) {
+    padding-left: 44px;
+    
+  }
+  @media screen and (min-width: 768px) {
+    padding-bottom:16px;
+   }
+   `;
