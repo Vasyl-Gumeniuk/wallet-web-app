@@ -7,7 +7,6 @@ font-size: 12px;
 text-transform: uppercase;
 color: #A6A6A6;
 margin-bottom: 12px;
-
 `;
 export const Wrapper = styled.div`
 min-width: 287px; 
@@ -17,7 +16,6 @@ padding-bottom:12px;
 background: #FFFFFF;
 border-radius: 30px;
 display: inline-block;
-margin-top:15px;
 @media screen and (min-width: 768px) {
   padding-left: 40px;
   padding-right: 121px;
@@ -50,15 +48,15 @@ export const Main = styled.div`
     justify-content center;
     margin-top: 15px;
     @media screen and (min-width: 768px) {
-      margin-top: 0px;
+      margin-top: 28px;
       
     }
     @media screen and (min-width: 1024px) {
-      margin-top: 0px;
+      margin-top: 28px;
      
     }
     @media screen and (min-width: 2560px) {
-      margin-top: 0px;
+      margin-top: 28px;
       
      }
     `

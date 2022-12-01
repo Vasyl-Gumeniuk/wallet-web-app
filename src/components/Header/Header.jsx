@@ -3,6 +3,7 @@ import sprite from '../../images/icons/sprite-all-icons.svg';
 import Logo from '../Logo/Logo';
 import Modal from '../Modal/Modal';
 import ModalLogout from '../ModalLogout';
+import Container from '../Container';
 import {
   Head,
   Wrapper,
@@ -27,7 +28,7 @@ export default function Header({ currentUser }) {
 
   return (
     <Head>
-      <Wrapper>
+     <Wrapper>
         <Logo type="header"></Logo>
         <UserBlock>
           <>
@@ -41,11 +42,11 @@ export default function Header({ currentUser }) {
           </>
         </UserBlock>
       </Wrapper>
-      {showModal && (
+       {showModal && (
         <Modal>
           <ModalLogout closeModal={closeModal}></ModalLogout>
         </Modal>
       )}
-    </Head>
-  );
+     </Head>
+    );
 }

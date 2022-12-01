@@ -67,7 +67,7 @@ const chartOptions = {
   cutout: '70%',
 };
 
-function Chart() {
+function Chart({setBalance}) {
   const [year, setYear] = useState('');
   const [month, setMonth] = useState('');
 
@@ -102,6 +102,7 @@ function Chart() {
     expense = statData.data.totalExpense;
     const stats = statData.data.stats;
     res = findCategory(stats);
+   setBalance(currBalance)
   }
 
   const years = makeYearArray();

@@ -7,7 +7,7 @@ export const ContainerBlock = styled.div`
   padding-right: ${p => p.theme.space[10]}px;
   /* background-color: ${p => p.theme.colors.mainBg}; */
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 767.5px) {
     padding-left: ${p => p.theme.space[5]}px;
     padding-right: ${p => p.theme.space[5]}px;
     padding-bottom: ${p => p.theme.space[2]}px;
