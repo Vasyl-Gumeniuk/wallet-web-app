@@ -18,11 +18,12 @@ padding-bottom:12px;
 background: #FFFFFF;
 border-radius: 30px;
 display: inline-block;
-margin-top:28px;
+margin-top:15px;
 @media screen and (min-width: 768px) {
   padding-left: 40px;
   padding-right: 121px;
-  min-width: 343px; 
+  min-width: 336px; 
+  
 }
 @media screen and (min-width: 1024px) {
   padding-left: 40px;
@@ -46,3 +47,21 @@ font-weight: 700;
 font-size: 30px;
 color: #000000;
 `;
+export const Main = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content center;
+    margin-top: 15px;
+    @media screen and (min-width: 768px) {
+      margin-top: 0px;
+      
+    }
+    @media screen and (min-width: 1024px) {
+      margin-top: 0px;
+     
+    }
+    @media screen and (min-width: 2560px) {
+      margin-top: 0px;
+      
+     }
+    `
