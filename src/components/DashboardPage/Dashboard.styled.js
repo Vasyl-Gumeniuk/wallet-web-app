@@ -111,3 +111,9 @@ export const NavbarBalance = styled.div`
   padding-top: 8px;
 };
 `
+export const CurrencyBg= styled.div`
+  background: rgb(241, 242, 247);
+  height: 100vh;
+  overflow-y: scroll;
+  padding-top:15px;
+  `
