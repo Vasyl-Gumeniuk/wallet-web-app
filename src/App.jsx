@@ -14,7 +14,7 @@ import Table from '../src/components/Table';
 import DashboardPage from './components/DashboardPage/DashboardPage';
 import PrivateRouter from './components/Navigation/PrivateRouter';
 import PublicRouter from './components/Navigation/PublicRouter';
-
+import { NavBar } from './NavBar/NavBar';
 export const App = () => {
   const token = useSelector(state => state.authSlice.token);
   const skip = token === null ? true : false;
@@ -53,6 +53,7 @@ export const App = () => {
           path="/currency"
           element={
             <Mobile>
+              <NavBar></NavBar>
               <Currency></Currency>
             </Mobile>
           }
