@@ -1,7 +1,6 @@
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import React, { useState } from 'react';
-import Container from '../Container/Container';
 import { months, allCategories } from './ChartData';
 import {
   useGetTransactionsQuery,
@@ -23,6 +22,8 @@ import {
   TableItemThumb,
   TableSquare,
   TableBottom,
+  BottomContainer,
+  SelectContainer,
 } from './Chart.styled';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -74,7 +75,7 @@ function Chart({setBalance}) {
   var currBalance = 0.0;
   var income = 0.0;
   var expense = 0.0;
-  var res = [{ id: 1, color: 'white', category: 'Other', data: 0.0 }];
+  var res = [{ id: 0, color: '', category: '', data: 0 }];
   var monthToShow = '';
 
   const changeSelect = e => {
@@ -86,7 +87,6 @@ function Chart({setBalance}) {
         break;
       case 'month':
         setMonth(value);
-
         break;
       default:
         return;
@@ -120,20 +120,20 @@ function Chart({setBalance}) {
   };
 
   return (
-    <Container>
-      <ChartContainer>
-        <DiagramThumb>
-          <FirstPart>
-            <Title>Statistics</Title>
-            <Diagram>
-              <Sum>&#8372; {currBalance} </Sum>
-              <Doughnut data={data} options={chartOptions} />
-            </Diagram>
-          </FirstPart>
-          <SecondPart>
+    <div>
+      <Title>Statistics</Title>
+      <DiagramThumb>
+        <FirstPart>
+          <Diagram>
+            <Sum>&#8372; {currBalance} </Sum>
+            <Doughnut data={data} options={chartOptions} />
+          </Diagram>
+        </FirstPart>
+        <SecondPart>
+          <SelectContainer>
             <Select value={year} name="year" onChange={changeSelect}>
               <option disabled={true} value="">
-                Виберите рік
+                Year
               </option>
               {years.map(({ year, id }) => (
                 <option key={id}>{year}</option>
@@ -141,28 +141,28 @@ function Chart({setBalance}) {
             </Select>
             <Select value={month} name="month" onChange={changeSelect}>
               <option disabled={true} value="">
-                Виберите місяць
+                Month
               </option>
               {months.map(({ month, id }) => (
                 <option key={id}>{month}</option>
               ))}
             </Select>
-            <Table>
-              <TableTop>
-                <p>Category</p>
-                <p>Sum</p>
-              </TableTop>
-              {res.map(({ id, color, category, data }) => (
-                <TableItem key={id}>
-                  <TableItemThumb>
-                    <TableSquare
-                      style={{ background: `${color}` }}
-                    ></TableSquare>
-                    <span>{category}</span>
-                  </TableItemThumb>
-                  <span>{data}</span>
-                </TableItem>
-              ))}
+          </SelectContainer>
+          <Table>
+            <TableTop>
+              <p>Category</p>
+              <p>Sum</p>
+            </TableTop>
+            {res.map(({ id, color, category, data }) => (
+              <TableItem key={id}>
+                <TableItemThumb>
+                  <TableSquare style={{ background: `${color}` }}></TableSquare>
+                  <span>{category}</span>
+                </TableItemThumb>
+                <span>{data}</span>
+              </TableItem>
+            ))}
+            <BottomContainer>
               <TableBottom>
                 <p>Expenses:</p>
                 <p style={{ color: '#FF6596' }}>{expense}</p>
@@ -171,11 +171,11 @@ function Chart({setBalance}) {
                 <p>Income:</p>
                 <p style={{ color: '#24CCA7' }}>{income}</p>
               </TableBottom>
-            </Table>
-          </SecondPart>
-        </DiagramThumb>
-      </ChartContainer>
-    </Container>
+            </BottomContainer>
+          </Table>
+        </SecondPart>
+      </DiagramThumb>
+    </div>
   );
 }
 
