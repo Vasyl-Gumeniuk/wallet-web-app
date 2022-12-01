@@ -1,6 +1,5 @@
 import { Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
-// import { Link } from 'react-router-dom';
 import {
   AuthButton,
   RedirectFormButton,
@@ -16,16 +15,10 @@ import {
   ButtonElement,
   RedirectButtonLink,
 } from '../../LoginPage/LoginForm/LoginForm.styled';
+import ButtonLoaderIcon from '../../../components/ButtonLoader';
 
 const RegistrationForm = () => {
-  const [
-    register,
-    // {
-    //   isError: isRegistrationError,
-    //   isLoading: isRegistrationLoading,
-    //   isSuccess: isRegistrationSuccess,
-    // },
-  ] = useRegisterMutation();
+  const [register] = useRegisterMutation();
 
   const dispatch = useDispatch();
 
@@ -78,7 +71,9 @@ const RegistrationForm = () => {
             />
             <ul>
               <ButtonElement>
-                <AuthButton type="submit">Register</AuthButton>
+                <AuthButton type="submit">
+                  {isSubmitting ? <ButtonLoaderIcon /> : 'Register'}
+                </AuthButton>
               </ButtonElement>
               <ButtonElement>
                 <RedirectButtonLink to="/login">

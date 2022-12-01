@@ -10,16 +10,10 @@ import { useLogInMutation } from '../../../redux/auth/authApi';
 import { logInUser } from '../../../redux/auth/authSlice';
 import { LoginSchema } from '../../../services/formValidationService';
 import { ButtonElement, RedirectButtonLink } from './LoginForm.styled';
+import ButtonLoaderIcon from '../../../components/ButtonLoader';
 
 const LoginForm = () => {
-  const [
-    login,
-    // {
-    //   isError: isLoginError,
-    //   isLoading: isLoginLoading,
-    //   isSuccess: isloginSuccess,
-    // },
-  ] = useLogInMutation();
+  const [login] = useLogInMutation();
   const dispatch = useDispatch();
 
   const handleSubmit = async (email, password) => {
@@ -58,7 +52,9 @@ const LoginForm = () => {
             />
             <ul>
               <ButtonElement>
-                <AuthButton type="submit">Log in</AuthButton>
+                <AuthButton type="submit">
+                  {isSubmitting ? <ButtonLoaderIcon /> : 'Log in'}
+                </AuthButton>
               </ButtonElement>
               <ButtonElement>
                 <RedirectButtonLink to="/registration">
