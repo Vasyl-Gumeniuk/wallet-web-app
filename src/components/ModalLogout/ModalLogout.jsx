@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Formik } from 'formik';
 import { Form } from 'formik';
 import { Box } from '../../Box';
@@ -16,19 +16,28 @@ import {
 
 export const ModalLogout = ({ closeModal }) => {
   const [skip, setSkip] = useState(true);
-  const { isSuccess } = useLogOutQuery('', { skip });
+  const { refetch } = useLogOutQuery('', { skip: skip });
+
   const dispatch = useDispatch();
-  const handleLogOut = async () => {
-    setSkip(false);
+
+  const handleLogout = () => {
     try {
-      if (isSuccess) {
-        dispatch(logOutUser());
-        closeModal();
-      }
+      dispatch(logOutUser());
+      closeModal();
+      setSkip(true);
     } catch (error) {
       console.error(error);
+      setSkip(true);
     }
   };
+
+  useEffect(() => {
+    if (!skip) {
+      refetch();
+      handleLogout();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [skip]);
 
   return (
     <CenteredDiv>
@@ -41,7 +50,7 @@ export const ModalLogout = ({ closeModal }) => {
                 <Form>
                   <ul>
                     <ButtonElement>
-                      <LogoutButton onClick={handleLogOut}>
+                      <LogoutButton onClick={() => setSkip(false)}>
                         Log out
                       </LogoutButton>
                     </ButtonElement>
