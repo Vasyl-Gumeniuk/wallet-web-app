@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const authApi = createApi({
   reducerPath: 'authApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://back-voit-wallet.herokuapp.com/api',
+    baseUrl: 'https://back-voit-wallet.onrender.com/api',
 
     prepareHeaders: async (headers, { getState }) => {
       const token = await getState().authSlice.token;

@@ -17,18 +17,25 @@ import {
   ButtonElement,
   RedirectButtonLink,
 } from '../../LoginPage/LoginForm/LoginForm.styled';
+import { useNavigate } from 'react-router-dom';
 
 const RegistrationForm = () => {
   const [register] = useRegisterMutation();
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
   const handleSubmit = async (email, password, name) => {
-    const user = { email, password, name };
-    const { data } = await register(user);
+    try {
+      const user = { email, password, name };
+      const { data } = await register(user);
 
-    await dispatch(registerUser(data));
-    Notify.success('You are successfully registered. Now, please, log in');
+      await dispatch(registerUser(data));
+      Notify.success('You are successfully registered. Now, please, log in');
+      navigate('/login');
+    } catch (error) {
+      Notify.error(error.message);
+    }
   };
 
   return (
