@@ -27,17 +27,24 @@ padding-bottom:20px;
 display: flex;
 justify-content: space-between;
 width: 100%;
-padding-left: 16px;
-padding-right: 16px;
-
+padding-left: ${p => p.theme.space[10]}px;
+padding-right: ${p => p.theme.space[10]}px;
+@media screen and (min-width: 767.5px) {
+  width: 767,5px;
+  padding-left: ${p => p.theme.space[5]}px;
+  padding-right: ${p => p.theme.space[5]}px;
+ 
+}
 @media screen and (min-width: 1280px) {
   width: 1280px;
+  padding-left: ${p => p.theme.space[4]}px;
+  padding-right: ${p => p.theme.space[4]}px;
 }
 @media screen and (min-width: 2560px) {
   width: 1170px;
-  
 }
 `;
+
 export const UserBlock = styled.div`
   display: flex;
   justify-content: space-between;
