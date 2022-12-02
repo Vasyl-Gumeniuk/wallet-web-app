@@ -23,13 +23,19 @@ export const NavBar = () => {
             </LinkStyled>)
 }
           </Item>
-          <Item>
-            <LinkStyled to="/statistics">
+            <Item>
+            { location === '/statistics'? (
+            <LinkStyledCurrent to="/statistics">
               <Icon>
                 <use href="#icon-statistica"></use>
               </Icon>
               <Default>Statistics</Default>
-            </LinkStyled>
+            </LinkStyledCurrent>) : (<LinkStyled to="/statistics">
+              <Icon>
+                <use href="#icon-statistica"></use>
+              </Icon>
+              <Default>Statistics</Default>
+            </LinkStyled>)}
           </Item>
           <Mobile>
             <Item>
