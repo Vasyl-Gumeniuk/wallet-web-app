@@ -42,7 +42,7 @@ function getWindowSize() {
   return { innerWidth, innerHeight };
 }
 
-function Table() {
+function Table({setBalance}) {
   const [windowSize, setWindowSize] = useState(getWindowSize());
 
   useEffect(() => {
@@ -78,6 +78,7 @@ function Table() {
 
   if (statData.data) {
     currBalance = statData.data.currBalance;
+    setBalance(currBalance)
   }
   if (data.data) {
     res = data.data.data;
