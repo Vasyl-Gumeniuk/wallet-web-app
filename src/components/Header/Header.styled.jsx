@@ -27,14 +27,15 @@ padding-bottom:20px;
 display: flex;
 justify-content: space-between;
 width: 100%;
-padding-left:20px;
-padding-right: 20px;
+padding-left: 16px;
+padding-right: 16px;
 
 @media screen and (min-width: 1280px) {
   width: 1280px;
 }
 @media screen and (min-width: 2560px) {
   width: 1170px;
+  
 }
 `;
 export const UserBlock = styled.div`

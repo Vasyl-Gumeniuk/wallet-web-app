@@ -3,7 +3,6 @@ import sprite from '../../images/icons/sprite-all-icons.svg';
 import Logo from '../Logo/Logo';
 import Modal from '../Modal/Modal';
 import ModalLogout from '../ModalLogout';
-import Container from '../Container';
 import {
   Head,
   Wrapper,
