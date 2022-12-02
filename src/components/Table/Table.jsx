@@ -8,6 +8,7 @@ import {
   MobileItemLeft,
   MobileItemRight,
   MobileItem,
+  Span,
 } from './Table.styled';
 import { useGetTransactionsQuery } from '../../redux/transactions/transactionApi';
 import { Mobile, Default } from '../../services/mediaQuery';
@@ -90,90 +91,12 @@ function Table() {
               <MobileContainer>
                 <MobileItem>
                   <ul>
-                    <MobileItemLeft>
-                      <span
-                        style={{
-                          width: '15%',
-                          textAlign: 'right',
-                          color: `${
-                            transaction.type === 'income'
-                              ? colors.income
-                              : colors.expenses
-                          }`,
-                        }}
-                      ></span>
-                      Date
-                    </MobileItemLeft>
-                    <MobileItemLeft>
-                      <span
-                        style={{
-                          width: '15%',
-                          textAlign: 'right',
-                          color: `${
-                            transaction.type === 'income'
-                              ? colors.income
-                              : colors.expenses
-                          }`,
-                        }}
-                      ></span>
-                      Type
-                    </MobileItemLeft>
-                    <MobileItemLeft>
-                      <span
-                        style={{
-                          width: '15%',
-                          textAlign: 'right',
-                          color: `${
-                            transaction.type === 'income'
-                              ? colors.income
-                              : colors.expenses
-                          }`,
-                        }}
-                      ></span>
-                      Category
-                    </MobileItemLeft>
-                    <MobileItemLeft>
-                      <span
-                        style={{
-                          width: '15%',
-                          textAlign: 'right',
-                          color: `${
-                            transaction.type === 'income'
-                              ? colors.income
-                              : colors.expenses
-                          }`,
-                        }}
-                      ></span>
-                      Comment
-                    </MobileItemLeft>
-                    <MobileItemLeft>
-                      <span
-                        style={{
-                          width: '15%',
-                          textAlign: 'right',
-                          color: `${
-                            transaction.type === 'income'
-                              ? colors.income
-                              : colors.expenses
-                          }`,
-                        }}
-                      ></span>
-                      Sum
-                    </MobileItemLeft>
-                    <MobileItemLeft>
-                      <span
-                        style={{
-                          width: '15%',
-                          textAlign: 'right',
-                          color: `${
-                            transaction.type === 'income'
-                              ? colors.income
-                              : colors.expenses
-                          }`,
-                        }}
-                      ></span>
-                      Balance
-                    </MobileItemLeft>
+                    <MobileItemLeft>Date</MobileItemLeft>
+                    <MobileItemLeft>Type</MobileItemLeft>
+                    <MobileItemLeft>Category</MobileItemLeft>
+                    <MobileItemLeft>Comment</MobileItemLeft>
+                    <MobileItemLeft>Sum</MobileItemLeft>
+                    <MobileItemLeft>Balance</MobileItemLeft>
                   </ul>
                 </MobileItem>
                 <MobileItem>

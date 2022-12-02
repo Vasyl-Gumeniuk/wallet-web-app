@@ -79,5 +79,6 @@ export const MobileItemRight = styled.li`
 `;
 
 export const MobileItem = styled.li`
+  display: block;
   margin-bottom: 8px;
 `;
