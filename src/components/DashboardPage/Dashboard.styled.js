@@ -81,11 +81,13 @@ export const ChatContainer = styled.div`
     padding-top: 40px;
     padding-bottom: 47px;
     margin-left: 69px;
+    margin-right: 0;
   }
   @media screen and (min-width: 2560px) {
     padding-top: 40px;
     padding-bottom: 47px;
     margin-left: 69px;
+    margin-right: 0;
   }
 `;
 export const Line = styled.div`
