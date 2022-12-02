@@ -13,6 +13,7 @@ import {
   ShortTableItem,
   ShortTableCell,
   TableSpan,
+  ShortTableContainer,
 } from './Table.styled';
 import { TableData } from './TableData';
 const colors = { income: '#24CCA7', expense: '#FF6596' };
@@ -42,7 +43,7 @@ function getWindowSize() {
   return { innerWidth, innerHeight };
 }
 
-function Table({setBalance}) {
+function Table({ setBalance }) {
   const [windowSize, setWindowSize] = useState(getWindowSize());
 
   useEffect(() => {
@@ -78,15 +79,15 @@ function Table({setBalance}) {
 
   if (statData.data) {
     currBalance = statData.data.currBalance;
-    setBalance(currBalance)
+    setBalance(currBalance);
   }
   if (data.data) {
     res = data.data.data;
   }
 
   return (
-    <TableContainer>
-      {windowSize.innerWidth > `${768}` ? (
+    <div>
+      {windowSize.innerWidth > `${767.5}` ? (
         <div>
           <TableHead>
             {TableData.map(({ label, id, width, textAlign }) => (
@@ -128,9 +129,12 @@ function Table({setBalance}) {
           ))}
         </div>
       ) : (
-        <div>
+        <ShortTableContainer>
           {res.map(({ date, type, category, comment, sum, _id }) => (
-            <ShortTableCell key={_id}>
+            <ShortTableCell
+              key={_id}
+              style={{ borderLeft: `solid 5px ${defColor(type)}` }}
+            >
               <ShortTableItem>
                 <TableSpan>Date</TableSpan>
                 <span>{date}</span>
@@ -153,9 +157,9 @@ function Table({setBalance}) {
               </ShortTableItem>
             </ShortTableCell>
           ))}
-        </div>
+        </ShortTableContainer>
       )}
-    </TableContainer>
+    </div>
   );
 }
 
