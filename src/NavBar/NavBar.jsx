@@ -1,20 +1,27 @@
 import { ReactComponent as ReactSprite } from '../images/icons/sprite-all-icons.svg';
-import Container from '../components/Container/Container';
-import { List, Item, Icon, LinkStyled } from './NavBar.styled';
+import { List, Item, Icon, LinkStyled, LinkStyledCurrent } from './NavBar.styled';
 import { Mobile, Default } from '../services/mediaQuery';
+import { useLocation } from 'react-router-dom';
 
 export const NavBar = () => {
+  let location = useLocation().pathname;
   return (
     <nav>
         <List>
           <Item>
             <ReactSprite />
-            <LinkStyled to="/home">
+            { location === '/home'? (<LinkStyledCurrent to="/home">
               <Icon>
                 <use href="#icon-home"></use>
               </Icon>
               <Default>Home</Default>
-            </LinkStyled>
+            </LinkStyledCurrent>) : (<LinkStyled to="/home">
+              <Icon>
+                <use href="#icon-home"></use>
+              </Icon>
+              <Default>Home</Default>
+            </LinkStyled>)
+}
           </Item>
           <Item>
             <LinkStyled to="/statistics">

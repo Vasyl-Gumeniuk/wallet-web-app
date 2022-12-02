@@ -50,6 +50,17 @@ export const LinkStyled = styled(NavLink)`
     font-weight: 700;
   }
 `;
+export const LinkStyledCurrent = styled(NavLink)`
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  font-size: ${p => p.theme.fontSizes.m};
+  line-height: ${p => p.theme.lineHeights.body};
+  color: ${p => p.theme.colors.primaryTextColor};
+  font-weight: 400;
+  filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
+  font-weight: 700;
+  `
 
 export const Icon = styled.svg`
   fill: ${p => p.theme.colors.unactiveButtonColor};
