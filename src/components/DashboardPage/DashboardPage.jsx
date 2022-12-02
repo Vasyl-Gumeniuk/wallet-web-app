@@ -16,7 +16,7 @@ const FROM = {
 
 export default function DashboardPage({ currentUser, from }) {
   const [balance, setBalance] = useState(0);
-  const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
+  const isMobile = useMediaQuery({ query: '(max-width: 767.5px)' })
   let location = useLocation().pathname;
   function getElementforNavigation() {
   let navBalance 
