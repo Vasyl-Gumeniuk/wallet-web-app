@@ -34,7 +34,7 @@ const ModalAddTransaction = ({ onClose, currentUser }) => {
   };
 
   return (
-    <Modal onClick={handleBackdropClick}>
+    <Modal handleBackdropClick={handleBackdropClick}>
       <Div>
         <ButtonClose onClick={onClose}>
           <svg width="16" height="16" fill="#000000" aria-label="buttonclose">

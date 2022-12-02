@@ -4,9 +4,9 @@ import { Backdrop, ModalWindow } from './Modal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
 
-export const Modal = ({ children }) => {
+export const Modal = ({ children, handleBackdropClick }) => {
   return createPortal(
-    <Backdrop>
+    <Backdrop onClick={handleBackdropClick}>
       <ModalWindow>{children}</ModalWindow>
     </Backdrop>,
     modalRoot,

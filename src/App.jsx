@@ -16,8 +16,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useFetchCurrentUserQuery } from './redux/auth/authApi';
 import { fetchUser } from './redux/auth/authSlice';
 import { CurrencyBg } from './components/DashboardPage/Dashboard.styled';
-// import StatisticsPage from './pages/StatisticsPage';
-import Table from '../src/components/Table';
 import DashboardPage from './components/DashboardPage/DashboardPage';
 import PrivateRouter from './components/Navigation/PrivateRouter';
 import PublicRouter from './components/Navigation/PublicRouter';
