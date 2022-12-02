@@ -16,7 +16,7 @@ padding-bottom:12px;
 background: #FFFFFF;
 border-radius: 30px;
 display: inline-block;
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 767.5px) {
   padding-left: 40px;
   padding-right: 121px;
   min-width: 336px; 

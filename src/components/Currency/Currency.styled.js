@@ -145,8 +145,8 @@ export const Wrapper = styled.table`
   line-height: 24px;
   font-weight: 700;
   @media screen and (min-width: 768px) {
-    padding-left: 61px;
-    padding-right: 61px;
+    padding-left: 42px;
+    padding-right: 42px;
     padding-bottom:16px;
   }
   @media screen and (min-width: 1024px) {
@@ -191,8 +191,8 @@ export const Wrapper = styled.table`
   font-weight: 400;
   text-align: center;
   @media screen and (min-width: 768px) {
-    padding-left: 61px;
-    padding-right: 61px;
+    padding-left: 42px;
+    padding-right: 42px;
   }
   @media screen and (min-width: 1024px) {
     padding-left: 29px;
