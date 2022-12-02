@@ -63,7 +63,7 @@ export default function DashboardPage({ currentUser, from }) {
           {getElementforNavigation()}
             <Line></Line>
           <ChatContainer>
-            {from === FROM.home ? <Table setBalance={setBalance}/> : <Chart setBalance={setBalance}/>}
+            {from === FROM.home ? <Table/> : <Chart/>}
           </ChatContainer>
           <ButtonAddTransactions currentUser={currentUser} />
         </Main>
